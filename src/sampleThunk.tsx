@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-// sample
 type ThunkInputType = { wrumm: string }
 type ThunkReturnType = { poo: number }
 
