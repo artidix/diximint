@@ -13,9 +13,9 @@ const styles = {
 export const Navbar = () => {
   return (
     <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', color: 'white' }}>
-      <Box style={styles.parts}>1</Box>
-      <Box style={styles.parts}>2</Box>
-      <Box style={styles.parts}>3</Box>
+      <Box style={styles.parts}>Attack NFTs</Box>
+      <Box style={styles.parts}>Mint</Box>
+      <Box style={styles.parts}>Addr</Box>
     </Box>
   )
 }
