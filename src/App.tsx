@@ -1,12 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Box } from '@mui/material';
 import { Main } from "./Main";
 import { About } from "./About";
-import ToastBar from './ToastBar';
+import { Navbar } from "./Navbar";
+
 
 function App() {
   return (
-    <div>
+    <Box>
       <header>
+        <Navbar />
       </header>
 
       <BrowserRouter>
@@ -15,7 +18,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </Box>
   );
 }
 
