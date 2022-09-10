@@ -8,7 +8,5 @@ export default () => {
         enqueueSnackbar('I love hooks');
     };
 
-    return (
-        <Button onClick={handleClick}>Show snackbar</Button>
-    );
+    return null;
 }

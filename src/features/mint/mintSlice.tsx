@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../store";
+import { mintThunk } from "./mintTunk";
 
 export type NFTStatus = 'none' | 'requested' | 'minted';
 
@@ -22,6 +22,20 @@ export const mintSlice = createSlice({
       state.nftStatus = 'requested';
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(mintThunk.pending, (state) => {
+    });
+
+    builder.addCase(mintThunk.rejected, (state) => {
+    });
+
+    builder.addCase(mintThunk.fulfilled, (state, action) => {
+        if (action.payload) {
+           // @! show success toast
+           // @! show result
+        }
+    });
+  }
 });
 
 export const {requestMint} = mintSlice.actions

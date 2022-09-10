@@ -1,12 +1,16 @@
 import Button from '@mui/material/Button';
-import { requestMint } from './features/mint/mintSlice';
-import { useDispatch } from 'react-redux';
+import { mintThunk } from './features/mint/mintTunk';
+import { useAppDispatch } from './hooks';
+import { MintThunkInput } from './features/mint/mintTunk';
 
 export const Main = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const requestMinting = (phrase: string) => {
-    dispatch(requestMint(phrase));
+  const requestMinting = async (phrase: string) => {
+    var mintRequest = {phrase} as MintThunkInput;
+    var res = await dispatch(mintThunk(mintRequest));
+
+    console.log('RES', res.payload);
   }
 
   return (

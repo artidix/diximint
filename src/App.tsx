@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Main } from "./Main";
 import { About } from "./About";
-import SimpleSnackbar from './SimpleSnackbar';
+import ToastBar from './ToastBar';
 
 function App() {
   return (
@@ -9,15 +9,12 @@ function App() {
       <header>
       </header>
 
-
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
-
-      <SimpleSnackbar />
     </div>
   );
 }
