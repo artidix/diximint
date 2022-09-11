@@ -6,6 +6,7 @@ import { MintThunkInput } from './features/mint/mintTunk';
 import { useEffect, useState } from 'react';
 import { currentUserSelector } from './features/auth/authSlice';
 import { ChainClient } from './common/chainclient';
+import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 
 const styles = {
   root: {
@@ -54,18 +55,27 @@ export const Main = () => {
     fetchCurrentPrice();
   })
 
-  return (
-    <Paper style={styles.root}>
-      <Button variant="contained">Login</Button>
-      ...
-      <Box style={styles.central}></Box>
-      <Box style={styles.central}>enter your phrase</Box>
-      <Button variant="contained" onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
-      ...
-      <Box style={styles.central}>game rules</Box>
-      <Box style={styles.central}>current items count</Box>
-      <Box style={styles.central}>opensea</Box>
-      <Box style={styles.central}>which network</Box>
-    </Paper>
-  )
+  if(loggedInUser) {
+    return (
+      <Paper style={styles.root}>
+        ...
+        <Box style={styles.central}></Box>
+        <Box style={styles.central}>enter your phrase</Box>
+        <Button variant="contained" onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
+        ...
+        <Box style={styles.central}>game rules</Box>
+        <Box style={styles.central}>current items count</Box>
+        <Box style={styles.central}>opensea</Box>
+        <Box style={styles.central}>which network</Box>
+      </Paper>
+    )
+  } else {
+    return (
+      <Paper style={styles.root}>
+        <ConnectWalletButton />
+      </Paper>
+    )
+  }
+
+  
 }
