@@ -3,11 +3,14 @@ import { Box } from '@mui/material';
 import { Main } from "./Main";
 import { About } from "./About";
 import { Navbar } from "./Navbar";
+import { Auth } from "./features/auth/Auth";
 
 
 function App() {
   return (
     <Box>
+      <Auth />
+
       <header>
         <Navbar />
       </header>

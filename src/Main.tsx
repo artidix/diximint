@@ -1,10 +1,11 @@
 import { Paper, Button, Box } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { mintThunk } from './features/mint/mintTunk';
-import { useAppDispatch } from './hooks';
+import { useAppDispatch, useAppSelector } from './hooks';
 import { MintThunkInput } from './features/mint/mintTunk';
 import { useEffect, useState } from 'react';
-import { getCurrentPrice } from './common/chainclient';
+import { currentUserSelector } from './features/auth/authSlice';
+import { ChainClient } from './common/chainclient';
 
 const styles = {
   root: {
@@ -30,6 +31,7 @@ export const Main = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const [currentPrice, setCurrentPrice] = useState(0);
+  const loggedInUser = useAppSelector(currentUserSelector) ?? '';
 
   const requestMinting = async (phrase: string) => {
     var mintRequest = { phrase } as MintThunkInput;
@@ -42,8 +44,10 @@ export const Main = () => {
   }
 
   async function fetchCurrentPrice() {
-    const priceResponse = await getCurrentPrice();
-    console.log('PRICE RESPONSE:', priceResponse);
+    // const priceResponse = await getCurrentPrice();
+    // console.log('PRICE RESPONSE:', priceResponse);
+    const chainClient = new ChainClient(loggedInUser);
+    await chainClient.getCurrentPrice();
   }
 
   useEffect(() => {
