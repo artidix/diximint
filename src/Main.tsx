@@ -3,6 +3,8 @@ import { useSnackbar } from 'notistack';
 import { mintThunk } from './features/mint/mintTunk';
 import { useAppDispatch } from './hooks';
 import { MintThunkInput } from './features/mint/mintTunk';
+import { useEffect, useState } from 'react';
+import { getCurrentPrice } from './common/chainclient';
 
 const styles = {
   root: {
@@ -18,13 +20,16 @@ const styles = {
     border: '1px purple solid',
     borderRadius: '10px',
     padding: '.5rem',
-    margin: '.1rem'
+    margin: '.1rem',
+    backgroundColor: '#FFEDFF'
   }
 };
 
 export const Main = () => {
   const dispatch = useAppDispatch();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
+  const [currentPrice, setCurrentPrice] = useState(0);
 
   const requestMinting = async (phrase: string) => {
     var mintRequest = { phrase } as MintThunkInput;
@@ -36,10 +41,20 @@ export const Main = () => {
     }
   }
 
+  async function fetchCurrentPrice() {
+    const priceResponse = await getCurrentPrice();
+    console.log('PRICE RESPONSE:', priceResponse);
+  }
+
+  useEffect(() => {
+    fetchCurrentPrice();
+  })
+
   return (
     <Paper style={styles.root}>
       <Button variant="contained">Login</Button>
       ...
+      <Box style={styles.central}></Box>
       <Box style={styles.central}>enter your phrase</Box>
       <Button variant="contained" onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
       ...
