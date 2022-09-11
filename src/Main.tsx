@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { currentUserSelector } from './features/auth/authSlice';
 import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
+import { CONTRACT_ADDRESS } from './common/app.config';
 
 const styles = {
   root: {
@@ -52,6 +53,7 @@ export const Main = () => {
   }
 
   useEffect(() => {
+    console.log('Contract Address:', CONTRACT_ADDRESS);
     fetchCurrentPrice();
   })
 

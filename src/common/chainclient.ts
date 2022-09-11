@@ -1,13 +1,13 @@
 import { ethers } from 'ethers';
 import dixiArtifact from "../generated/DixiNFT.json"
+import { CONTRACT_ADDRESS } from './app.config';
 
-const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 const abi = dixiArtifact.abi || "";
 declare let window: any;
 
 const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 const signer = provider.getSigner();
-const contract = new ethers.Contract(contractAddress, abi, signer);
+const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
 
 export class ChainClient {
     player: string;
