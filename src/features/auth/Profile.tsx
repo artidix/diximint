@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName } from 'wagmi'
 import { Button, Box, Modal } from '@mui/material'
 import { WalletConnectButtons } from './WalletConnectButtons'
@@ -8,6 +8,7 @@ export function Profile() {
   const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
   const { data: ensName } = useEnsName({ address })
   const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
+  const [showConnect, setShowConnet] = useState(false);
 
   const { disconnect } = useDisconnect()
 
@@ -26,18 +27,19 @@ export function Profile() {
     // handleOpen();
   });
 
+  return (
+    <Button color='secondary'>Profile</Button>
+  )
+
   if (isConnected) {
     return (
-      <div>Profile</div>
+      <Box style={styles.container}>
+        <img src={ensAvatar ?? ''} alt="ENS Avatar" />
+        <Box>{ensName ? `${ensName} (${address})` : address}</Box>
+        <Box>Connected to {connector?.name}</Box>
+        <button onClick={() => disconnect()}>Disconnect</button>
+      </Box>
     )
-    // return (
-    //   <Box style={styles.container}>
-    //     <img src={ensAvatar ?? ''} alt="ENS Avatar" />
-    //     <Box>{ensName ? `${ensName} (${address})` : address}</Box>
-    //     <Box>Connected to {connector?.name}</Box>
-    //     <button onClick={() => disconnect()}>Disconnect</button>
-    //   </Box>
-    // )
   }
 
   return (
