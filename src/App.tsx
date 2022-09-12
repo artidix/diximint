@@ -28,25 +28,9 @@ const client = createClient({
   autoConnect: true,
   connectors: [
     new MetaMaskConnector({ chains }),
-    new CoinbaseWalletConnector({
-      chains,
-      options: {
-        appName: 'wagmi',
-      },
-    }),
-    new WalletConnectConnector({
-      chains,
-      options: {
-        qrcode: true,
-      },
-    }),
-    new InjectedConnector({
-      chains,
-      options: {
-        name: 'Injected',
-        shimDisconnect: true,
-      },
-    }),
+    new CoinbaseWalletConnector({ chains, options: { appName: 'wagmi' } }),
+    new WalletConnectConnector({ chains, options: { qrcode: true } }),
+    new InjectedConnector({ chains, options: { name: 'Injected', shimDisconnect: true } })
   ],
   provider,
   webSocketProvider,
