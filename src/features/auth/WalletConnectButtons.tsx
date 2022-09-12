@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName } from 'wagmi'
 import { Button, Box, Modal } from '@mui/material'
-import { WalletConnectButtons } from './WalletConnectButtons'
 
-export function Profile() {
+
+export const WalletConnectButtons = () => {
   const { address, connector, isConnected } = useAccount()
   const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
   const { data: ensName } = useEnsName({ address })
@@ -17,31 +17,29 @@ export function Profile() {
 
   const styles: { container: React.CSSProperties } = {
     container: {
-      border: '3px lime solid'
+      border: '3px violet solid',
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '2rem',
+      maxWidth: '15rem'
     }
   }
 
-  useEffect(() => {
-    handleOpen();
-  });
-
-  if (isConnected) {
-    return (
-      <Box style={styles.container}>
-        <img src={ensAvatar ?? ''} alt="ENS Avatar" />
-        <Box>{ensName ? `${ensName} (${address})` : address}</Box>
-        <Box>Connected to {connector?.name}</Box>
-        <button onClick={() => disconnect()}>Disconnect</button>
-      </Box>
-    )
-  }
-
   return (
-    <Modal open={open} onClose={handleClose}
-      aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-      <WalletConnectButtons />
-    </Modal>
+    <Box style={styles.container}>
+        {connectors.map((connector) => (
+          <Button
+            variant='contained'
+            disabled={!connector.ready} key={connector.id} onClick={() => connect({ connector })}>
+            {connector.name}
+            {!connector.ready && ' (unsupported)'}
+            {isLoading &&
+              connector.id === pendingConnector?.id &&
+              ' (connecting)'}
+          </Button>
+        ))}
 
-
+        {error && <div>{error.message}</div>}
+      </Box>
   )
 }
