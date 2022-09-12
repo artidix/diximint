@@ -73,11 +73,11 @@ export const Main = () => {
         <Container maxWidth={false}>
           <Grid container justifyContent='center' alignItems='center' sx={{ height: '30vh', border: '1px solid #0000AA', width:'50vw' }}>
             <Grid item container maxWidth='100vw'>
-              <Grid item xs={6} sx={{ height: 60, backgroundColor: '#8800AA' }}>
+              <Grid item xs={6} sx={{ height: 60, backgroundColor: 'primary.main' }}>
                 <Typography variant='h4'>Mint AI NFT</Typography>
               </Grid>
-              <Grid item xs={6} sx={{ height: 60, backgroundColor: 'primary.main'}}>
-                <Typography variant='h5'>Guess and Win</Typography>
+              <Grid item xs={6} sx={{ height: 60, backgroundColor: 'secondary.main'}}>
+                <Typography variant='h4'>Guess and Win</Typography>
               </Grid>
             </Grid>
           </Grid>

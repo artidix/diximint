@@ -13,7 +13,7 @@ export function Profile() {
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => { console.log('closing'); setOpen(false); };
 
   const styles: { container: React.CSSProperties } = {
     container: {
@@ -22,18 +22,22 @@ export function Profile() {
   }
 
   useEffect(() => {
-    handleOpen();
+    console.log('Profile', isConnected);
+    // handleOpen();
   });
 
   if (isConnected) {
     return (
-      <Box style={styles.container}>
-        <img src={ensAvatar ?? ''} alt="ENS Avatar" />
-        <Box>{ensName ? `${ensName} (${address})` : address}</Box>
-        <Box>Connected to {connector?.name}</Box>
-        <button onClick={() => disconnect()}>Disconnect</button>
-      </Box>
+      <div>Profile</div>
     )
+    // return (
+    //   <Box style={styles.container}>
+    //     <img src={ensAvatar ?? ''} alt="ENS Avatar" />
+    //     <Box>{ensName ? `${ensName} (${address})` : address}</Box>
+    //     <Box>Connected to {connector?.name}</Box>
+    //     <button onClick={() => disconnect()}>Disconnect</button>
+    //   </Box>
+    // )
   }
 
   return (

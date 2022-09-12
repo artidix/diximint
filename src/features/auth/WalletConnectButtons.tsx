@@ -15,31 +15,35 @@ export const WalletConnectButtons = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const styles: { container: React.CSSProperties } = {
+  const styles: { container: React.CSSProperties, item: React.CSSProperties } = {
     container: {
-      border: '3px violet solid',
+      border: '3px #FF00DD solid',
       display: 'flex',
       flexDirection: 'column',
-      padding: '2rem',
-      maxWidth: '15rem'
+      paddingTop: '2rem',
+      paddingBottom: '2rem',
+      maxWidth: '20rem'
+    },
+    item: {
+      margin: '.5rem'
     }
   }
 
   return (
     <Box style={styles.container}>
-        {connectors.map((connector) => (
-          <Button
-            variant='contained'
-            disabled={!connector.ready} key={connector.id} onClick={() => connect({ connector })}>
-            {connector.name}
-            {!connector.ready && ' (unsupported)'}
-            {isLoading &&
-              connector.id === pendingConnector?.id &&
-              ' (connecting)'}
-          </Button>
-        ))}
+      {connectors.map((connector) => (
+        <Button style={styles.item}
+          variant='contained'
+          disabled={!connector.ready} key={connector.id} onClick={() => connect({ connector })}>
+          {connector.name}
+          {!connector.ready && ' (unsupported)'}
+          {isLoading &&
+            connector.id === pendingConnector?.id &&
+            ' (connecting)'}
+        </Button>
+      ))}
 
-        {error && <div>{error.message}</div>}
-      </Box>
+      {error && <div>{error.message}</div>}
+    </Box>
   )
 }

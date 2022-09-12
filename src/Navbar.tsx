@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import { Profile } from './features/auth/Profile';
 
 const styles = {
   parts: {
@@ -15,7 +16,7 @@ export const Navbar = () => {
     <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', color: 'white' }}>
       <Box style={styles.parts}>Attack NFTs</Box>
       <Box style={styles.parts}>Mint</Box>
-      <Box style={styles.parts}>Addr</Box>
+      <Box style={styles.parts}><Profile /></Box>
     </Box>
   )
 }

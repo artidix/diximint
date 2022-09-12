@@ -45,12 +45,12 @@ function App() {
         <Auth />
 
         <header>
-          <Navbar />
+          <WagmiConfig client={client}>
+            <Navbar />
+          </WagmiConfig>
         </header>
 
-        <WagmiConfig client={client}>
-          <Profile />
-        </WagmiConfig>
+        {/* <Profile /> */}
 
         <BrowserRouter>
           <Routes>
