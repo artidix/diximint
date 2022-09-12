@@ -13,23 +13,13 @@ export function Profile() {
   const { disconnect } = useDisconnect()
 
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => { console.log('closing'); setOpen(false); };
+  const handleOpen = () => { console.log('opening...'); setOpen(true); };
+  const handleClose = () => { console.log('closing...'); setOpen(false); };
 
   const styles: { container: React.CSSProperties } = {
     container: {
-      border: '3px lime solid'
     }
   }
-
-  useEffect(() => {
-    console.log('Profile', isConnected);
-    // handleOpen();
-  });
-
-  return (
-    <Button color='secondary'>Profile</Button>
-  )
 
   if (isConnected) {
     return (
@@ -40,14 +30,14 @@ export function Profile() {
         <button onClick={() => disconnect()}>Disconnect</button>
       </Box>
     )
-  }
-
-  return (
-    <Modal open={open} onClose={handleClose}
-      aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-      <WalletConnectButtons />
-    </Modal>
-
-
+  } else return (
+    <React.Fragment>
+      <Button color='secondary' onClick={handleOpen}>Profile</Button>
+      <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+        <WalletConnectButtons />
+      </Modal>
+    </React.Fragment>
   )
+
+  
 }

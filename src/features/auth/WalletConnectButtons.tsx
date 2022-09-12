@@ -22,7 +22,8 @@ export const WalletConnectButtons = () => {
       flexDirection: 'column',
       paddingTop: '2rem',
       paddingBottom: '2rem',
-      maxWidth: '20rem'
+      maxWidth: '20rem',
+      // backgroundColor: '#120030'
     },
     item: {
       margin: '.5rem'
@@ -34,7 +35,7 @@ export const WalletConnectButtons = () => {
       {connectors.map((connector) => (
         <Button style={styles.item}
           variant='contained'
-          disabled={!connector.ready} key={connector.id} onClick={() => connect({ connector })}>
+          disabled={!connector.ready} key={connector.id} onClick={() => {connect({ connector }); handleClose()}}>
           {connector.name}
           {!connector.ready && ' (unsupported)'}
           {isLoading &&
