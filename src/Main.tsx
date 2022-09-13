@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
+import { currentUserSelector } from './features/auth/authSlice';
 
 const styles = {
   root: {
@@ -32,7 +33,7 @@ export const Main = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const [currentPrice, setCurrentPrice] = useState(0);
-  const loggedInUser = '0x11'; //useAppSelector(currentUserSelector) ?? '';
+  const loggedInUser = useAppSelector(currentUserSelector) ?? '';
 
   const requestMinting = async (phrase: string) => {
     var mintRequest = { phrase } as MintThunkInput;

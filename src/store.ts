@@ -1,10 +1,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import logger from 'redux-logger';
 import mintReducer from './features/mint/mintSlice';
+import authReducer from './features/auth/authSlice';
 
 export const store = configureStore({
     reducer: {
         mint: mintReducer,
+        auth: authReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 })
