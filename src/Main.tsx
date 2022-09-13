@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
-import { currentUserSelector } from './features/auth/authSlice';
 
 const styles = {
   root: {
@@ -46,17 +45,17 @@ export const Main = () => {
     }
   }
 
-  async function fetchCurrentPrice() {
-    // const priceResponse = await getCurrentPrice();
-    // console.log('PRICE RESPONSE:', priceResponse);
-    // const chainClient = new ChainClient(loggedInUser);
-    // await chainClient.getCurrentPrice();
+  async function fetchCurrentPrice(address: string) {
+    const chainClient = new ChainClient(address);
+    await chainClient.getCurrentPrice();
   }
 
   useEffect(() => {
     console.log('Contract Address:', CONTRACT_ADDRESS);
-    // fetchCurrentPrice();
-  })
+    if(address) {
+      fetchCurrentPrice(address);
+    }
+  }, [address])
 
   if (isConnected) {
     return (
