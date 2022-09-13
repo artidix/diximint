@@ -13,10 +13,10 @@ export const ConnectWalletButton = () => {
 
   return (
     <Fragment>
-      {/* <Button onClick={handleOpen} variant='contained' color='secondary'>Connect Wallet</Button> */}
-      {/* <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      <Button onClick={handleOpen} variant='contained' color='secondary'>Connect Wallet</Button>
+      <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <WalletConnectButtons />
-      </Modal> */}
+      </Modal>
     </Fragment>
   );
 }

@@ -1,4 +1,5 @@
 import { Paper, Button, Box, Container, Grid, Typography } from '@mui/material';
+import { useAccount } from 'wagmi';
 import { useSnackbar } from 'notistack';
 import { mintThunk } from './features/mint/mintTunk';
 import { useAppDispatch, useAppSelector } from './hooks';
@@ -33,7 +34,7 @@ export const Main = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const [currentPrice, setCurrentPrice] = useState(0);
-  const loggedInUser = useAppSelector(currentUserSelector) ?? '';
+  const { address, connector, isConnected } = useAccount();
 
   const requestMinting = async (phrase: string) => {
     var mintRequest = { phrase } as MintThunkInput;
@@ -57,7 +58,7 @@ export const Main = () => {
     // fetchCurrentPrice();
   })
 
-  if (loggedInUser) {
+  if (isConnected) {
     return (
       <Paper style={styles.root}>
         ...
