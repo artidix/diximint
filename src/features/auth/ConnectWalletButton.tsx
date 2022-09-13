@@ -1,7 +1,6 @@
 import { Fragment, useState } from "react";
 import { Button, Modal } from "@mui/material";
 import { useAppDispatch } from "../../hooks";
-import { requestLoginThunk } from "./requestLoginThunk";
 import { WalletConnectButtons } from "./WalletConnectButtons";
 
 export const ConnectWalletButton = () => {
@@ -14,10 +13,10 @@ export const ConnectWalletButton = () => {
 
   return (
     <Fragment>
-      <Button onClick={handleOpen} variant='contained' color='secondary'>Connect Wallet</Button>
-      <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      {/* <Button onClick={handleOpen} variant='contained' color='secondary'>Connect Wallet</Button> */}
+      {/* <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <WalletConnectButtons />
-      </Modal>
+      </Modal> */}
     </Fragment>
   );
 }

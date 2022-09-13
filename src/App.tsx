@@ -15,7 +15,6 @@ import { Main } from "./Main";
 import { About } from "./About";
 import { Navbar } from "./Navbar";
 import { theme } from "./theme";
-import { Auth } from "./features/auth/Auth";
 import { Profile } from "./features/auth/Profile";
 import { ALCHEMY_API_KEY } from "./common/app.config";
 
@@ -42,22 +41,21 @@ function App() {
       <CssBaseline />
 
       <ThemeProvider theme={theme}>
-        <Auth />
+        <WagmiConfig client={client}>
 
-        <header>
-          <WagmiConfig client={client}>
+          <header>
             <Navbar />
-          </WagmiConfig>
-        </header>
+          </header>
 
-        {/* <Profile /> */}
+          {/* <Profile /> */}
 
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </BrowserRouter>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </BrowserRouter>
+        </WagmiConfig>
       </ThemeProvider>
     </React.Fragment>
   );

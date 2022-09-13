@@ -4,7 +4,6 @@ import { mintThunk } from './features/mint/mintTunk';
 import { useAppDispatch, useAppSelector } from './hooks';
 import { MintThunkInput } from './features/mint/mintTunk';
 import { useEffect, useState } from 'react';
-import { currentUserSelector } from './features/auth/authSlice';
 import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
@@ -33,7 +32,7 @@ export const Main = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const [currentPrice, setCurrentPrice] = useState(0);
-  const loggedInUser = useAppSelector(currentUserSelector) ?? '';
+  const loggedInUser = '0x11'; //useAppSelector(currentUserSelector) ?? '';
 
   const requestMinting = async (phrase: string) => {
     var mintRequest = { phrase } as MintThunkInput;
@@ -48,13 +47,13 @@ export const Main = () => {
   async function fetchCurrentPrice() {
     // const priceResponse = await getCurrentPrice();
     // console.log('PRICE RESPONSE:', priceResponse);
-    const chainClient = new ChainClient(loggedInUser);
-    await chainClient.getCurrentPrice();
+    // const chainClient = new ChainClient(loggedInUser);
+    // await chainClient.getCurrentPrice();
   }
 
   useEffect(() => {
     console.log('Contract Address:', CONTRACT_ADDRESS);
-    fetchCurrentPrice();
+    // fetchCurrentPrice();
   })
 
   if (loggedInUser) {
