@@ -15,7 +15,7 @@ export const WalletConnectButtons = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const styles: { container: React.CSSProperties, item: React.CSSProperties,tmp: React.CSSProperties } = {
+  const styles: { container: React.CSSProperties, item: React.CSSProperties, tmp: React.CSSProperties } = {
     container: {
       display: 'flex',
       flexDirection: 'column',
@@ -31,21 +31,24 @@ export const WalletConnectButtons = () => {
     },
     tmp: {
       border: '1px #BB00AA solid',
+
+      position: 'absolute' as 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
       display: 'flex',
       flexDirection: 'column',
       padding: '2rem 1rem 2rem 1rem',
-      minWidth: '18rem',
-      maxWidth: '30rem',
+      backgroundColor: '#09001880'
     }
   }
 
   return (
-    <Box style={styles.container}>
-      <Box style={styles.tmp}>
+    <Box style={styles.tmp}>
       {connectors.map((connector) => (
         <Button style={styles.item}
           variant='contained'
-          disabled={!connector.ready} key={connector.id} onClick={() => {connect({ connector }); handleClose()}}>
+          disabled={!connector.ready} key={connector.id} onClick={() => { connect({ connector }); handleClose() }}>
           {connector.name}
           {!connector.ready && ' (unsupported)'}
           {isLoading &&
@@ -55,15 +58,6 @@ export const WalletConnectButtons = () => {
       ))}
 
       {error && <div>{error.message}</div>}
-      </Box>
     </Box>
-
-    // <Grid container justifyContent='center' alignItems='center' sx={{ height: '100vh', border: '1px solid #0000AA' }}>
-    //   <Grid item container>
-    //     <Grid item xs={6} sx={{ height: '100vh', backgroundColor: 'primary.main', border: '3px #FF00DD solid' }} justifyContent="center">
-    //       111
-    //     </Grid>
-    //   </Grid>
-    // </Grid>
   )
 }
