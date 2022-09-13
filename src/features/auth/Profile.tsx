@@ -12,9 +12,9 @@ export function Profile() {
 
   const { disconnect } = useDisconnect()
 
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => { console.log('opening...'); setOpen(true); };
-  const handleClose = () => { console.log('closing...'); setOpen(false); };
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const styles: { container: React.CSSProperties } = {
     container: {
@@ -32,7 +32,7 @@ export function Profile() {
     )
   } else return (
     <React.Fragment>
-      <Button color='secondary' onClick={handleOpen}>Profile</Button>
+      <Button color='secondary' onClick={handleOpen}>Sign in</Button>
       <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <WalletConnectButtons />
       </Modal>

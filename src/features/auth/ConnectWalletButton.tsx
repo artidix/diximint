@@ -1,16 +1,23 @@
-import { Button } from "@mui/material";
+import { Fragment, useState } from "react";
+import { Button, Modal } from "@mui/material";
 import { useAppDispatch } from "../../hooks";
 import { requestLoginThunk } from "./requestLoginThunk";
+import { WalletConnectButtons } from "./WalletConnectButtons";
 
 export const ConnectWalletButton = () => {
   const dispatch = useAppDispatch();
 
-    const connectWallet = async () => {
-        // dispatch(requestLoginThunk());
-        console.log('Connecting...');
-    }
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-    return (
-      <Button onClick={connectWallet} variant='contained'>Connect Wallet</Button>
-    );
+
+  return (
+    <Fragment>
+      <Button onClick={handleOpen} variant='contained' color='secondary'>Connect Wallet</Button>
+      <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+        <WalletConnectButtons />
+      </Modal>
+    </Fragment>
+  );
 }
