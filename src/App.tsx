@@ -15,7 +15,6 @@ import { Main } from "./Main";
 import { About } from "./About";
 import { Navbar } from "./Navbar";
 import { theme } from "./theme";
-import { Profile } from "./features/auth/Profile";
 import { ALCHEMY_API_KEY } from "./common/app.config";
 
 const { chains, provider, webSocketProvider } = configureChains(defaultChains, [
@@ -46,8 +45,6 @@ function App() {
           <header>
             <Navbar />
           </header>
-
-          {/* <Profile /> */}
 
           <BrowserRouter>
             <Routes>
