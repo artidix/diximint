@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Blockies from 'react-blockies'
 import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName } from 'wagmi'
 import { Button, Box, Modal } from '@mui/material'
 import { WalletConnectButtons } from './WalletConnectButtons'
@@ -23,11 +24,16 @@ export function Profile() {
 
   if (isConnected) {
     console.log(`connected to ${connector?.name} by ${ensName ?? address}`);
+    console.log('ensAvatar:', ensAvatar);
     return (
       <Box style={styles.container}>
-        <img src={ensAvatar ?? ''} alt="ENS Avatar" />
+        {
+          ensAvatar ? <img src={ensAvatar ?? ''} alt="ENS Avatar" />
+            : <Blockies seed={address?.toLocaleLowerCase() ?? ''} size={10} scale={3} />
+        }
+
         {/* <Box>{ensName ? `${ensName} (${address})` : address}</Box> */}
-        <button onClick={() => disconnect()}>Disconnect</button>
+        <Button color='secondary' onClick={() => disconnect()}>Disconnect</Button>
       </Box>
     )
   } else return (
