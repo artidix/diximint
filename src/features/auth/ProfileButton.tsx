@@ -22,11 +22,11 @@ export function Profile() {
   }
 
   if (isConnected) {
+    console.log(`connected to ${connector?.name} by ${ensName ?? address}`);
     return (
       <Box style={styles.container}>
         <img src={ensAvatar ?? ''} alt="ENS Avatar" />
-        <Box>{ensName ? `${ensName} (${address})` : address}</Box>
-        <Box>Connected to {connector?.name}</Box>
+        {/* <Box>{ensName ? `${ensName} (${address})` : address}</Box> */}
         <button onClick={() => disconnect()}>Disconnect</button>
       </Box>
     )
@@ -39,5 +39,5 @@ export function Profile() {
     </React.Fragment>
   )
 
-  
+
 }

@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material';
-import { Profile } from './features/auth/Profile';
+import { Profile } from './features/auth/ProfileButton';
 
 const styles = {
   parts: {
