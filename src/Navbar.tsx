@@ -1,10 +1,11 @@
 import { Box, Button } from '@mui/material';
 import { Profile } from './features/auth/ProfileButton';
 
-const styles = {
+const styles: { parts: React.CSSProperties } = {
   parts: {
     flexGrow: 1,
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'middle',
     color: 'white'

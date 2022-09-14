@@ -19,6 +19,11 @@ export function Profile() {
 
   const styles: { container: React.CSSProperties } = {
     container: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 0
     }
   }
 
