@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu, MenuItem, Divider, Button, Box } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout';
 
-export const Tmp = () => {
+export const DisconnectMenuButton = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {

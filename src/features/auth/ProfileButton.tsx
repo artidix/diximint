@@ -12,15 +12,6 @@ export function Profile() {
   const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
   const [showConnect, setShowConnet] = useState(false);
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const openMenu = Boolean(anchorEl);
-  const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const closeMenu = () => {
-    setAnchorEl(null);
-  };
-
   const { disconnect } = useDisconnect()
 
   const [open, setOpen] = useState(false);
@@ -42,25 +33,15 @@ export function Profile() {
     console.log(`connected to ${connector?.name} by ${ensName ?? address}`);
     console.log('ensAvatar:', ensAvatar);
     return (
-      <Box style={styles.container} onClick={handleOpenMenu}>
+      <Box style={styles.container} onClick={() => console.log('to open')}>
         {
           ensAvatar ? <img src={ensAvatar ?? ''} alt="ENS Avatar" />
             : <Blockies seed={address?.toLocaleLowerCase() ?? ''} size={10} scale={3} />
         }
 
         {/* <Box>{ensName ? `${ensName} (${address})` : address}</Box> */}
-        <Button color='secondary' onClick={() => disconnect()}>Disconnect</Button>
-        <Menu
-          id="profile-menu" MenuListProps={{ 'aria-labelledby': 'menu-buttom', }}
-          anchorEl={anchorEl}
-          open={openMenu}
-          onClose={closeMenu}
-        >
-          {/* <Divider sx={{ my: 0.1 }} /> */}
-          <MenuItem onClick={handleClose} >
-            <Button startIcon={<LogoutIcon />}>Disconnect</Button>
-          </MenuItem>
-        </Menu>
+        {/* <Button color='secondary' onClick={() => disconnect()}>Disconnect</Button> */}
+        {/* <Button onClick={handleOpenMenu} variant='contained'>Menu</Button> */}
       </Box>
     )
   } else return (
