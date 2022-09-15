@@ -1,4 +1,5 @@
-import { Paper, Button, Box, Container, Grid, Typography } from '@mui/material';
+import { Paper, Button, Box, Container, Grid, Typography, TextField } from '@mui/material';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { useAccount } from 'wagmi';
 import { useSnackbar } from 'notistack';
 import { mintThunk } from './features/mint/mintTunk';
@@ -52,7 +53,7 @@ export const Main = () => {
 
   useEffect(() => {
     console.log('Contract Address:', CONTRACT_ADDRESS);
-    if(address) {
+    if (address) {
       fetchCurrentPrice(address);
     }
   }, [address])
@@ -63,7 +64,8 @@ export const Main = () => {
         ...
         <Box style={styles.central}></Box>
         <Box style={styles.central}>enter your phrase</Box>
-        <Button variant="contained" onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
+        <TextField id="input-phrase" label="Type your phrase" variant="outlined" />
+        <Button variant="contained" startIcon={<RocketLaunchIcon />} onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
         ...
         <Box style={styles.central}>game rules</Box>
         <Box style={styles.central}>current items count</Box>
@@ -71,12 +73,12 @@ export const Main = () => {
         <Box style={styles.central}>which network</Box>
 
         <Container maxWidth={false}>
-          <Grid container justifyContent='center' alignItems='center' sx={{ height: '30vh', border: '1px solid #0000AA', width:'50vw' }}>
+          <Grid container justifyContent='center' alignItems='center' sx={{ height: '30vh', border: '1px solid #0000AA', width: '50vw' }}>
             <Grid item container maxWidth='100vw'>
               <Grid item xs={6} sx={{ height: 60, backgroundColor: 'primary.main' }}>
                 <Typography variant='h4'>Mint AI NFT</Typography>
               </Grid>
-              <Grid item xs={6} sx={{ height: 60, backgroundColor: 'secondary.main'}}>
+              <Grid item xs={6} sx={{ height: 60, backgroundColor: 'secondary.main' }}>
                 <Typography variant='h4'>Guess and Win</Typography>
               </Grid>
             </Grid>
