@@ -9,10 +9,6 @@ export function Profile() {
   const { address, connector, isConnected } = useAccount()
   const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
   const { data: ensName } = useEnsName({ address })
-  const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
-  const [showConnect, setShowConnet] = useState(false)
-
-  const { disconnect } = useDisconnect()
 
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
@@ -25,7 +21,6 @@ export function Profile() {
       justifyContent: 'center',
       alignItems: 'center',
       padding: 0,
-      cursor: 'pointer',
     }
   }
 
@@ -34,11 +29,6 @@ export function Profile() {
     console.log('ensAvatar:', ensAvatar);
     return (
       <Box style={styles.container} onClick={() => console.log('to open')}>
-        {
-          ensAvatar ? <img src={ensAvatar ?? ''} alt="ENS Avatar" />
-            : <Blockies seed={address?.toLocaleLowerCase() ?? ''} size={10} scale={3} />
-        }
-
         {/* <Box>{ensName ? `${ensName} (${address})` : address}</Box> */}
         {/* <Button color='secondary' onClick={() => disconnect()}>Disconnect</Button> */}
         {/* <Button onClick={handleOpenMenu} variant='contained'>Menu</Button> */}
