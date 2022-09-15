@@ -14,7 +14,7 @@ export const DisconnectMenuButton = () => {
 
   return (
     <React.Fragment>
-      <Button onClick={handleClick} variant='contained'>Menu</Button>
+      <Button onClick={handleClick} color='secondary'>Profile</Button>
       <Menu
         id="profile-menu" MenuListProps={{ 'aria-labelledby': 'menu-buttom', }}
         anchorEl={anchorEl}

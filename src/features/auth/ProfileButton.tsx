@@ -3,20 +3,20 @@ import Blockies from 'react-blockies'
 import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName } from 'wagmi'
 import { Button, Box, Modal, Menu, MenuItem } from '@mui/material'
 import { WalletConnectButtons } from './WalletConnectButtons'
-import LogoutIcon from '@mui/icons-material/Logout';
+import { DisconnectMenuButton } from './DisconnectMenuButton'
 
 export function Profile() {
   const { address, connector, isConnected } = useAccount()
   const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
   const { data: ensName } = useEnsName({ address })
   const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
-  const [showConnect, setShowConnet] = useState(false);
+  const [showConnect, setShowConnet] = useState(false)
 
   const { disconnect } = useDisconnect()
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
 
   const styles: { container: React.CSSProperties } = {
     container: {
@@ -42,6 +42,7 @@ export function Profile() {
         {/* <Box>{ensName ? `${ensName} (${address})` : address}</Box> */}
         {/* <Button color='secondary' onClick={() => disconnect()}>Disconnect</Button> */}
         {/* <Button onClick={handleOpenMenu} variant='contained'>Menu</Button> */}
+        <DisconnectMenuButton />
       </Box>
     )
   } else return (
