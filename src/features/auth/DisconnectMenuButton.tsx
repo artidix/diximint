@@ -1,11 +1,11 @@
 import React from 'react'
 import Blockies from 'react-blockies'
-import { Menu, MenuItem, Divider, Button, Box } from '@mui/material'
+import { Menu, MenuItem, Button } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { useAccount, useEnsAvatar, useDisconnect } from 'wagmi'
 
 export const DisconnectMenuButton = () => {
-  const { address, connector, isConnected } = useAccount()
+  const { address } = useAccount()
   const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
   const { disconnect } = useDisconnect()
 
@@ -23,7 +23,7 @@ export const DisconnectMenuButton = () => {
       <Button onClick={handleClick} color='secondary' startIcon={
         ensAvatar ? <img src={ensAvatar ?? ''} alt="ENS Avatar" />
           : <Blockies seed={address?.toLocaleLowerCase() ?? ''} size={10} scale={3} />
-      }>Profile</Button>
+      }></Button>
       <Menu
         id="profile-menu" MenuListProps={{ 'aria-labelledby': 'menu-buttom', }}
         anchorEl={anchorEl}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Blockies from 'react-blockies'
-import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName } from 'wagmi'
-import { Button, Box, Modal, Menu, MenuItem } from '@mui/material'
+import { useAccount, useEnsAvatar, useEnsName } from 'wagmi'
+import { Button, Box, Modal } from '@mui/material'
 import { WalletConnectButtons } from './WalletConnectButtons'
 import { DisconnectMenuButton } from './DisconnectMenuButton'
 
@@ -29,9 +28,6 @@ export function Profile() {
     console.log('ensAvatar:', ensAvatar);
     return (
       <Box style={styles.container} onClick={() => console.log('to open')}>
-        {/* <Box>{ensName ? `${ensName} (${address})` : address}</Box> */}
-        {/* <Button color='secondary' onClick={() => disconnect()}>Disconnect</Button> */}
-        {/* <Button onClick={handleOpenMenu} variant='contained'>Menu</Button> */}
         <DisconnectMenuButton />
       </Box>
     )

@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
-import { DisconnectMenuButton } from './features/auth/DisconnectMenuButton';
 
 const styles = {
   root: {
@@ -34,7 +33,7 @@ export const Main = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const [currentPrice, setCurrentPrice] = useState(0);
-  const { address, connector, isConnected } = useAccount();
+  const { address, isConnected } = useAccount();
 
   const requestMinting = async (phrase: string) => {
     var mintRequest = { phrase } as MintThunkInput;
@@ -65,7 +64,6 @@ export const Main = () => {
         <Box style={styles.central}></Box>
         <Box style={styles.central}>enter your phrase</Box>
         <Button variant="contained" onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
-        <DisconnectMenuButton />
         ...
         <Box style={styles.central}>game rules</Box>
         <Box style={styles.central}>current items count</Box>
