@@ -13,7 +13,6 @@ import { CONTRACT_ADDRESS } from './common/app.config';
 
 const styles: { root: React.CSSProperties, paper: React.CSSProperties, central: React.CSSProperties } = {
   root: {
-    marginTop: '2rem',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -26,16 +25,14 @@ const styles: { root: React.CSSProperties, paper: React.CSSProperties, central: 
     justifyContent: 'center',
     alignItems: 'middle',
     padding: '3rem',
-    maxWidth: '50rem'
   },
   central: {
     display: 'flex',
     justifyContent: 'center',
     border: '1px purple solid',
-    borderRadius: '10px',
+    borderRadius: '4px',
     padding: '.5rem',
     margin: '.1rem',
-    backgroundColor: '#FFEDFF'
   }
 };
 
@@ -48,13 +45,13 @@ export const Main = () => {
 
   const [phrase, setPhrase] = useState('');
 
-  const requestMinting = async (phrase: string) => {
-    var mintRequest = { phrase } as MintThunkInput;
+  const requestMinting = async (_phrase: string) => {
+    var mintRequest = { phrase: _phrase } as MintThunkInput;
     var res = await dispatch(mintThunk(mintRequest));
 
     const result = res.payload as any;
     if (result.id) {
-      enqueueSnackbar(`${phrase}: ${result.id}`);
+      enqueueSnackbar(`${_phrase}: ${result.id}`);
     }
   }
 
@@ -83,7 +80,7 @@ export const Main = () => {
               input: {
                 textAlign: "center",
               },
-              margin: '.5rem'
+              margin: '.5rem',
             }}
           />
           <Button
@@ -91,11 +88,11 @@ export const Main = () => {
             sx={{ margin: '.5rem' }}
             disabled={phrase == ''}
             startIcon={<RocketLaunchIcon />}
-            onClick={() => requestMinting('zombie unicorn eats rainbow')}>
+            onClick={() => requestMinting(phrase)}>
             Mint
           </Button>
 
-          <Container maxWidth={false}>
+          <Container maxWidth={false} style={styles.central}>
             <Grid container justifyContent='center' alignItems='center' sx={{ height: '20vh', border: '1px dotted #0000AA' }}>
               <Grid item container maxWidth='120vw'>
                 <Grid item xs={6} sx={{ height: 80, border: '1px dashed', borderColor: 'primary.main' }}>
@@ -117,6 +114,4 @@ export const Main = () => {
       </Paper>
     )
   }
-
-
 }
