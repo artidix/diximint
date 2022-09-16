@@ -61,16 +61,8 @@ export const Main = () => {
   if (isConnected) {
     return (
       <Paper style={styles.root}>
-        ...
-        <Box style={styles.central}></Box>
-        <Box style={styles.central}>enter your phrase</Box>
-        <TextField id="input-phrase" label="Type your phrase" variant="outlined" />
+        <TextField id="input-phrase" placeholder="Type your phrase" variant="outlined" sx={{ input: { textAlign: "center" }}} />
         <Button variant="contained" startIcon={<RocketLaunchIcon />} onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
-        ...
-        <Box style={styles.central}>game rules</Box>
-        <Box style={styles.central}>current items count</Box>
-        <Box style={styles.central}>opensea</Box>
-        <Box style={styles.central}>which network</Box>
 
         <Container maxWidth={false}>
           <Grid container justifyContent='center' alignItems='center' sx={{ height: '30vh', border: '1px solid #0000AA', width: '50vw' }}>
