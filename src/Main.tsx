@@ -17,6 +17,8 @@ const styles: { root: React.CSSProperties, paper: React.CSSProperties, central: 
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
+    minHeight: '70vh',
+    border: '1px solid purple'
   },
   paper: {
     flexGrow: 1,
