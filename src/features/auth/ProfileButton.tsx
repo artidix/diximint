@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useAccount, useEnsAvatar, useEnsName } from 'wagmi'
-import { Button, Box, Modal } from '@mui/material'
+import { Button, Box } from '@mui/material'
 import { WalletConnectButtons } from './WalletConnectButtons'
 import { DisconnectMenuButton } from './DisconnectMenuButton'
+import { StyledModal } from '../../common/StyledModal'
 
 export function Profile() {
   const { address, connector, isConnected } = useAccount()
@@ -34,9 +35,9 @@ export function Profile() {
   } else return (
     <React.Fragment>
       <Button color='secondary' onClick={handleOpen}>Sign in</Button>
-      <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      <StyledModal open={open} onClose={handleClose} aria-labelledby="auth-modal" aria-describedby="authentication-options">
         <WalletConnectButtons />
-      </Modal>
+      </StyledModal>
     </React.Fragment>
   )
 
