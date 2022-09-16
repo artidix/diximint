@@ -11,7 +11,7 @@ import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
 
-const styles : {root: React.CSSProperties, paper: React.CSSProperties, central: React.CSSProperties} = {
+const styles: { root: React.CSSProperties, paper: React.CSSProperties, central: React.CSSProperties } = {
   root: {
     marginTop: '2rem',
     display: 'flex',
@@ -72,16 +72,34 @@ export const Main = () => {
     return (
       <Box style={styles.root}>
         <Paper style={styles.paper}>
-          <TextField id="input-phrase" onChange={(e) => setPhrase(e.target.value)} placeholder="Type your phrase" variant="outlined" sx={{ input: { textAlign: "center" } }} />
-          <Button variant="contained" disabled={phrase == ''} startIcon={<RocketLaunchIcon />} onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
+          <TextField
+            id="input-phrase"
+            onChange={(e) => setPhrase(e.target.value)}
+            placeholder="Type your phrase"
+            variant="outlined"
+            sx={{
+              input: {
+                textAlign: "center",
+              },
+              margin: '.5rem'
+            }}
+          />
+          <Button
+            variant="contained"
+            sx={{ margin: '.5rem' }}
+            disabled={phrase == ''}
+            startIcon={<RocketLaunchIcon />}
+            onClick={() => requestMinting('zombie unicorn eats rainbow')}>
+            Mint
+          </Button>
 
           <Container maxWidth={false}>
             <Grid container justifyContent='center' alignItems='center' sx={{ height: '20vh', border: '1px dotted #0000AA' }}>
               <Grid item container maxWidth='120vw'>
-                <Grid item xs={6} sx={{ height: 80, border:'1px dashed', borderColor: 'primary.main' }}>
+                <Grid item xs={6} sx={{ height: 80, border: '1px dashed', borderColor: 'primary.main' }}>
                   <Typography variant='h4'>Mint AI NFT</Typography>
                 </Grid>
-                <Grid item xs={6} sx={{ height: 80, border:'1px dashed', borderColor: 'secondary.main' }}>
+                <Grid item xs={6} sx={{ height: 80, border: '1px dashed', borderColor: 'secondary.main' }}>
                   <Typography variant='h4'>Guess and Win</Typography>
                 </Grid>
               </Grid>
