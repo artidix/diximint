@@ -35,6 +35,8 @@ export const Main = () => {
 
   const [currentPrice, setCurrentPrice] = useState(0);
   const { address, isConnected } = useAccount();
+  
+  const [phrase, setPhrase] = useState('');
 
   const requestMinting = async (phrase: string) => {
     var mintRequest = { phrase } as MintThunkInput;
@@ -61,8 +63,8 @@ export const Main = () => {
   if (isConnected) {
     return (
       <Paper style={styles.root}>
-        <TextField id="input-phrase" placeholder="Type your phrase" variant="outlined" sx={{ input: { textAlign: "center" }}} />
-        <Button variant="contained" startIcon={<RocketLaunchIcon />} onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
+        <TextField id="input-phrase" onChange={(e) => setPhrase(e.target.value)} placeholder="Type your phrase" variant="outlined" sx={{ input: { textAlign: "center" }}} />
+        <Button variant="contained" disabled={phrase == ''} startIcon={<RocketLaunchIcon />} onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
 
         <Container maxWidth={false}>
           <Grid container justifyContent='center' alignItems='center' sx={{ height: '30vh', border: '1px solid #0000AA', width: '50vw' }}>
