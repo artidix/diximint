@@ -24,7 +24,7 @@ const styles : {root: React.CSSProperties, paper: React.CSSProperties, central: 
     justifyContent: 'center',
     alignItems: 'middle',
     padding: '3rem',
-    maxWidth: '30rem'
+    maxWidth: '50rem'
   },
   central: {
     display: 'flex',
@@ -76,12 +76,12 @@ export const Main = () => {
           <Button variant="contained" disabled={phrase == ''} startIcon={<RocketLaunchIcon />} onClick={() => requestMinting('zombie unicorn eats rainbow')}>Mint</Button>
 
           <Container maxWidth={false}>
-            <Grid container justifyContent='center' alignItems='center' sx={{ height: '30vh', border: '1px solid #0000AA' }}>
-              <Grid item container maxWidth='100vw'>
-                <Grid item xs={6} sx={{ height: 60, backgroundColor: 'primary.main' }}>
+            <Grid container justifyContent='center' alignItems='center' sx={{ height: '20vh', border: '1px dotted #0000AA' }}>
+              <Grid item container maxWidth='120vw'>
+                <Grid item xs={6} sx={{ height: 80, border:'1px dashed', borderColor: 'primary.main' }}>
                   <Typography variant='h4'>Mint AI NFT</Typography>
                 </Grid>
-                <Grid item xs={6} sx={{ height: 60, backgroundColor: 'secondary.main' }}>
+                <Grid item xs={6} sx={{ height: 80, border:'1px dashed', borderColor: 'secondary.main' }}>
                   <Typography variant='h4'>Guess and Win</Typography>
                 </Grid>
               </Grid>
