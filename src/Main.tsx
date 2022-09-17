@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Button, Box, Container, Grid, Typography, TextField } from '@mui/material';
+import { Paper, Button, Box, Typography, TextField } from '@mui/material';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { useAccount } from 'wagmi';
 import { useSnackbar } from 'notistack';
@@ -11,7 +11,7 @@ import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
 
-const styles: { root: React.CSSProperties, paper: React.CSSProperties, central: React.CSSProperties, insidepaper: React.CSSProperties } = {
+const styles: { root: React.CSSProperties, paper: React.CSSProperties, insider: React.CSSProperties } = {
   root: {
     display: 'flex',
     flexDirection: 'row',
@@ -25,23 +25,14 @@ const styles: { root: React.CSSProperties, paper: React.CSSProperties, central: 
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'middle',
-    padding: '3rem',
+    paddingTop: '3rem',
+    paddingBottom: '3rem'
   },
-  central: {
-    display: 'flex',
-    justifyContent: 'center',
-    border: '1px purple solid',
-    borderRadius: '4px',
-    padding: '.5rem',
-    margin: '.1rem',
-  },
-  insidepaper: {
-    border: '1px lime solid',
-    // maxWidth: '30rem',
+  insider: {
+    minWidth: '20rem',
+    border: '1px solid #BB00AA',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
-    // display
   }
 };
 
@@ -80,7 +71,7 @@ export const Main = () => {
     return (
       <Box style={styles.root}>
         <Paper style={styles.paper}>
-          <Box style={styles.insidepaper}>
+          <Box style={styles.insider}>
             <TextField
               id="input-phrase"
               onChange={(e) => setPhrase(e.target.value)}
@@ -101,19 +92,6 @@ export const Main = () => {
               onClick={() => requestMinting(phrase)}>
               Mint
             </Button>
-
-            <Container maxWidth={false} style={styles.central}>
-              <Grid container justifyContent='center' alignItems='center' sx={{ height: '20vh', border: '1px dotted', borderColor: 'secondary.main' }}>
-                <Grid item container maxWidth='120vw'>
-                  <Grid item xs={6} sx={{ height: 80, border: '1px dashed', borderColor: 'primary.main' }}>
-                    <Typography variant='h4'>Mint NFT</Typography>
-                  </Grid>
-                  <Grid item xs={6} sx={{ height: 80, border: '1px dashed', borderColor: 'secondary.main' }}>
-                    <Typography variant='h4'>Play to Win</Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Container>
           </Box>
         </Paper>
       </Box>
