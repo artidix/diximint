@@ -11,14 +11,15 @@ import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
 
-const styles: { root: React.CSSProperties, paper: React.CSSProperties, insider: React.CSSProperties } = {
-  root: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    minHeight: '70vh',
-    border: '1px solid purple'
-  },
+const RootContainer = styled(Box)`
+    display: 'flex';
+    flex-direction: 'row';
+    justify-content: 'center';
+    min-height: '70vh';
+    border: '1px solid purple';
+`
+
+const styles: { paper: React.CSSProperties, insider: React.CSSProperties } = {
   paper: {
     flexGrow: 1,
     display: 'flex',
@@ -69,7 +70,7 @@ export const Main = () => {
 
   if (isConnected) {
     return (
-      <Box style={styles.root}>
+      <RootContainer>
         <Paper style={styles.paper}>
           <Box style={styles.insider}>
             <TextField
@@ -94,13 +95,13 @@ export const Main = () => {
             </Button>
           </Box>
         </Paper>
-      </Box>
+      </RootContainer>
     )
   } else {
     return (
-      <Paper style={styles.root}>
+      <RootContainer>
         <ConnectWalletButton />
-      </Paper>
+      </RootContainer>
     )
   }
 }
