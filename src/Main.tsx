@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Button, Box, Typography, TextField } from '@mui/material';
+import { Paper, Button, Box, Typography, TextField, styled } from '@mui/material';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { useAccount } from 'wagmi';
 import { useSnackbar } from 'notistack';
@@ -12,30 +12,27 @@ import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
 
 const RootContainer = styled(Box)`
-    display: 'flex';
-    flex-direction: 'row';
-    justify-content: 'center';
-    min-height: '70vh';
-    border: '1px solid purple';
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 70vh;
 `
 
-const styles: { paper: React.CSSProperties, insider: React.CSSProperties } = {
-  paper: {
-    flexGrow: 1,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'middle',
-    paddingTop: '3rem',
-    paddingBottom: '3rem'
-  },
-  insider: {
-    minWidth: '20rem',
-    border: '1px solid #BB00AA',
-    display: 'flex',
-    flexDirection: 'column',
-  }
-};
+const StyledPaper = styled(Paper)`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+`
+
+const StyledInsider = styled(Box)`
+  min-width: 20rem;
+  border: 1px solid #BB00AA;
+  display: flex;
+  flex-direction: column;
+`
 
 export const Main = () => {
   const dispatch = useAppDispatch();
@@ -71,8 +68,8 @@ export const Main = () => {
   if (isConnected) {
     return (
       <RootContainer>
-        <Paper style={styles.paper}>
-          <Box style={styles.insider}>
+        <StyledPaper>
+          <StyledInsider>
             <TextField
               id="input-phrase"
               onChange={(e) => setPhrase(e.target.value)}
@@ -93,8 +90,8 @@ export const Main = () => {
               onClick={() => requestMinting(phrase)}>
               Mint
             </Button>
-          </Box>
-        </Paper>
+          </StyledInsider>
+        </StyledPaper>
       </RootContainer>
     )
   } else {

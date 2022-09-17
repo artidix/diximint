@@ -12,9 +12,8 @@ export const ConnectWalletButton = () => {
   const handleClose = () => setOpen(false);
 
   const StyledBox = styled(Box)`
-  /* max-height: 30%; */
-  padding: 2rem;
-  margin: 1rem;
+    padding: 2rem;
+    margin: 1rem;
   `
 
   return (
