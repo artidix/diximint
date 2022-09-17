@@ -1,2 +1,2 @@
 export const CONTRACT_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
-export const ALCHEMY_API_KEY = '';
+export const ALCHEMY_API_KEY = 'RANlz9F31_j07mGticApsy06HJQOXdah';
