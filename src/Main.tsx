@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper, Button, Box, Typography, TextField, styled } from '@mui/material';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import { useAccount } from 'wagmi';
+import { useAccount, useContractRead } from 'wagmi';
 import { useSnackbar } from 'notistack';
 import { mintThunk } from './features/mint/mintTunk';
 import { useAppDispatch, useAppSelector } from './hooks';
@@ -38,10 +38,12 @@ export const Main = () => {
   const dispatch = useAppDispatch();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
-  const [currentPrice, setCurrentPrice] = useState(0);
+  const [currentPrice, setCurrentPrice] = useState(null as Number | null);
   const { address, isConnected } = useAccount();
 
   const [phrase, setPhrase] = useState('');
+
+  const read = useContractRead();
 
   const requestMinting = async (_phrase: string) => {
     var mintRequest = { phrase: _phrase } as MintThunkInput;
@@ -54,7 +56,9 @@ export const Main = () => {
   }
 
   async function fetchCurrentPrice(address: string) {
-    const chainClient = new ChainClient(address);
+    console.log('price for: ', address);
+    
+    
     await chainClient.getCurrentPrice();
   }
 

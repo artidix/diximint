@@ -6,37 +6,31 @@ const abi = dixiArtifact.abi || "";
 declare let window: any;
 
 const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-const signer = provider.getSigner();
-const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
+// const signer = provider.getSigner();
+// const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
 
 export class ChainClient {
-    player: string;
+    // async getCurrentPrice() {
+    //     console.log('*** SIGNER', signer);
 
-    constructor(player: string) {
-        this.player = player;
-    }
+    //     const [bigNum] = await contract.functions.getCurrentPrice();
+    //     const price = ethers.utils.formatEther(bigNum);
+    //     console.log('Current Price:', price + 'Ξ');
+    //     return price;
+    // }
 
-    async getCurrentPrice() {
-        console.log('*** SIGNER', signer);
+    // async mint(phrase: string) {
+    //     console.log('chain.mint:', phrase);
+    //     const phraseHash = ethers.utils.hashMessage(phrase);
+    //     const [price] = await contract.functions.getCurrentPrice();
+    //     const tx = await contract.mint(phraseHash, true, {
+    //         value: price
+    //     });
 
-        const [bigNum] = await contract.functions.getCurrentPrice();
-        const price = ethers.utils.formatEther(bigNum);
-        console.log('Current Price:', price + 'Ξ');
-        return price;
-    }
-
-    async mint(phrase: string) {
-        console.log('chain.mint:', phrase);
-        const phraseHash = ethers.utils.hashMessage(phrase);
-        const [price] = await contract.functions.getCurrentPrice();
-        const tx = await contract.mint(phraseHash, true, {
-            value: price
-        });
-
-        console.log('mint.tx:', tx);
-        const tmp = await tx.wait();
-        console.log('tx.wait:', tmp);
-    }
+    //     console.log('mint.tx:', tx);
+    //     const tmp = await tx.wait();
+    //     console.log('tx.wait:', tmp);
+    // }
 
     // async play(code: string, player: string) {
     //     console.log('chain.play:', code);
