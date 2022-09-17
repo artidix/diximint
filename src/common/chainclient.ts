@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 import dixiArtifact from "../generated/DixiNFT.json"
 import { CONTRACT_ADDRESS } from './app.config';
 
-const abi = dixiArtifact.abi || "";
+export const abi = dixiArtifact.abi || "";
 declare let window: any;
 
 const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
