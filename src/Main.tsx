@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
+import { CurrentPriceComponent } from './features/play/CurrentPriceComponent';
 
 const RootContainer = styled(Box)`
     display: flex;
@@ -72,6 +73,7 @@ export const Main = () => {
       <RootContainer>
         <StyledPaper>
           <StyledInsider>
+            <CurrentPriceComponent />
             <TextField
               id="input-phrase"
               onChange={(e) => setPhrase(e.target.value)}

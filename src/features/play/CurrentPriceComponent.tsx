@@ -1,12 +1,13 @@
 import React from "react"
 import { useContractRead } from 'wagmi'
 import {abi } from '../../common/chainclient'
+import {CONTRACT_ADDRESS} from '../../common/app.config'
 
 export const CurrentPriceComponent = () => {
   const { data, isError, isLoading } = useContractRead({
-    addressOrName: '0xecb504d39723b0be0e3a9aa33d646642d1051ee1',
+    addressOrName: CONTRACT_ADDRESS,
     contractInterface: abi,
-    functionName: 'getHunger',
+    functionName: 'getCurrentPrice',
   })
 
   // const read = useContractRead({addressOrName: address, contract});
@@ -15,7 +16,7 @@ export const CurrentPriceComponent = () => {
 
   return(
     <React.Fragment>
-      Ξ current price
+      Ξ current price {data}
     </React.Fragment>
   )
 }
