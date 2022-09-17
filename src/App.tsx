@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from "@emotion/react";
@@ -16,6 +16,7 @@ import { About } from "./About";
 import { Navbar } from "./Navbar";
 import { theme } from "./theme";
 import { ALCHEMY_API_KEY } from "./common/app.config";
+import { getDefaultProvider } from 'ethers';
 
 const { chains, provider, webSocketProvider } = configureChains(defaultChains, [
   alchemyProvider({ apiKey: ALCHEMY_API_KEY }),
@@ -30,11 +31,16 @@ const client = createClient({
     new WalletConnectConnector({ chains, options: { qrcode: true } }),
     new InjectedConnector({ chains, options: { name: 'Injected', shimDisconnect: true } })
   ],
-  provider,
+  // provider,
+  provider: getDefaultProvider(),
   webSocketProvider,
 });
 
 function App() {
+  useEffect(() => {
+    console.log('PRV', provider)
+  }, [provider])
+
   return (
     <React.Fragment>
       <CssBaseline />

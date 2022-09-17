@@ -7,7 +7,7 @@ export const CurrentPriceComponent = () => {
   const { data, isError, isLoading } = useContractRead({
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: abi,
-    functionName: 'getCurrentPrice',
+    functionName: 'getCurrentPrice'
   })
 
   // const read = useContractRead({addressOrName: address, contract});
@@ -16,7 +16,7 @@ export const CurrentPriceComponent = () => {
 
   return(
     <React.Fragment>
-      Ξ current price {data}
+      Ξ current price {data} {isError} {isLoading}
     </React.Fragment>
   )
 }
