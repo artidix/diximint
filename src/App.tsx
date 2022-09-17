@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from "@emotion/react";
 
-import { WagmiConfig, createClient, defaultChains, configureChains } from 'wagmi'
+import { chain, WagmiConfig, createClient, defaultChains, configureChains } from 'wagmi'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
@@ -18,10 +18,13 @@ import { theme } from "./theme";
 import { ALCHEMY_API_KEY } from "./common/app.config";
 import { getDefaultProvider } from 'ethers';
 
-const { chains, provider, webSocketProvider } = configureChains(defaultChains, [
-  alchemyProvider({ apiKey: ALCHEMY_API_KEY }),
-  publicProvider(),
-]);
+// const { chains, provider, webSocketProvider } = configureChains(defaultChains, [
+//   alchemyProvider({ apiKey: ALCHEMY_API_KEY }),
+//   publicProvider(),
+// ]);
+
+const { chains, provider, webSocketProvider } = configureChains([chain.localhost], [publicProvider()]);
+
 
 const client = createClient({
   autoConnect: true,
@@ -31,8 +34,7 @@ const client = createClient({
     new WalletConnectConnector({ chains, options: { qrcode: true } }),
     new InjectedConnector({ chains, options: { name: 'Injected', shimDisconnect: true } })
   ],
-  // provider,
-  provider: getDefaultProvider(),
+  provider,
   webSocketProvider,
 });
 
