@@ -10,7 +10,7 @@ export const CurrentPriceComponent = () => {
   const { data, isError, isLoading } = useContractRead({
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: abi,
-    functionName: 'getCurrentPrice'
+    functionName: 'currentMintPrice'
   })
   console.log('!!!!', data);
 
