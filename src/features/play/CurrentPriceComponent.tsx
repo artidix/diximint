@@ -10,12 +10,11 @@ export const CurrentPriceComponent = () => {
   const { data, isError, isLoading } = useContractRead({
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: abi,
-    functionName: 'currentMintPrice',
+    functionName: 'getCurrentMintPrice',
     onSuccess(data) {
-      console.log('Success', data)
+      console.log('Success', data.toString())
     },
   })
-  console.log('!!!!', data);
 
   // const { config } = usePrepareSendTransaction({
   //   request: { to: '0x47B40160f72C4321E08DE8B95E262e902c991cD3', value: BigNumber.from('10000000000000000') },

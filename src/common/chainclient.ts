@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import dixiArtifact from "../generated/DixiNFT.json"
+import dixiArtifact from "../generated/DixiNFT.sol/DixiNFT.json"
 import { CONTRACT_ADDRESS } from './app.config';
 
 export const abi = dixiArtifact.abi || "";
