@@ -1,9 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import { useContractRead, usePrepareSendTransaction, useSendTransaction } from 'wagmi'
 import { abi } from '../../common/chainclient'
 import { CONTRACT_ADDRESS } from '../../common/app.config'
 import { Box, Button, styled } from "@mui/material"
-import { BigNumber } from "ethers"
+import { BigNumber, utils } from "ethers"
 
 const StyledBox = styled(Box)`
   display: flex;
@@ -12,13 +12,15 @@ const StyledBox = styled(Box)`
 `
 
 export const CurrentPriceComponent = () => {
-  console.log('trying get price', CONTRACT_ADDRESS);
+  const [price, setPrice] = useState(null as string | null);
   const { data, isError, isLoading } = useContractRead({
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: abi,
     functionName: 'getCurrentMintPrice',
     onSuccess(data) {
-      console.log('Got price:', data.toString())
+      const p = utils.formatEther(data.toString());
+      console.log('Got price:', p);
+      setPrice(p);
     },
   })
 
@@ -36,7 +38,7 @@ export const CurrentPriceComponent = () => {
     <React.Fragment>
       <StyledBox>
         <Box>
-          Ξ current price
+           current price {price} Ξ
         </Box>
         {/* <Button disabled={!sendTransaction} onClick={() => sendTransaction?.()}>Check send</Button> */}
       </StyledBox>
