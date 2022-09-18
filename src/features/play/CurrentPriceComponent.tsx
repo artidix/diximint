@@ -4,6 +4,8 @@ import { abi } from '../../common/chainclient'
 import { CONTRACT_ADDRESS } from '../../common/app.config'
 import { Box, Button, styled } from "@mui/material"
 import { BigNumber, utils } from "ethers"
+import { useAppDispatch, useAppSelector } from "../../hooks"
+import { gotPrice, priceSelector } from "../price/priceSlice"
 
 const StyledBox = styled(Box)`
   display: flex;
@@ -12,6 +14,9 @@ const StyledBox = styled(Box)`
 `
 
 export const CurrentPriceComponent = () => {
+  const dispatch = useAppDispatch();
+  const currentPrice = useAppSelector(priceSelector);
+
   const [price, setPrice] = useState(null as string | null);
   const { data, isError, isLoading } = useContractRead({
     addressOrName: CONTRACT_ADDRESS,
@@ -20,6 +25,7 @@ export const CurrentPriceComponent = () => {
     onSuccess(data) {
       const p = utils.formatEther(data.toString());
       console.log('Got price:', p);
+      dispatch(gotPrice(p));
       setPrice(p);
     },
   })
@@ -38,7 +44,7 @@ export const CurrentPriceComponent = () => {
     <React.Fragment>
       <StyledBox>
         <Box>
-           current price {price} Ξ
+           current price {currentPrice} Ξ
         </Box>
         {/* <Button disabled={!sendTransaction} onClick={() => sendTransaction?.()}>Check send</Button> */}
       </StyledBox>

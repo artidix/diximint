@@ -54,20 +54,6 @@ export const Main = () => {
     }
   }
 
-  async function fetchCurrentPrice(address: string) {
-    console.log('price for: ', address);
-    
-    
-    // await chainClient.getCurrentPrice();
-  }
-
-  useEffect(() => {
-    console.log('Contract Address:', CONTRACT_ADDRESS);
-    if (address) {
-      fetchCurrentPrice(address);
-    }
-  }, [address])
-
   if (isConnected) {
     return (
       <RootContainer>
