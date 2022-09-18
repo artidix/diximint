@@ -14,7 +14,7 @@ const initialState: MintState = {
 }
 
 export const mintSlice = createSlice({
-  name: 'pref',
+  name: 'mint',
   initialState,
   reducers: {
     requestMint: (state, action: PayloadAction<string>) => {

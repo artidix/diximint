@@ -1,10 +1,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
-import logger from 'redux-logger';
-import mintReducer from './features/mint/mintSlice';
+import logger from 'redux-logger'
+import mintReducer from './features/mint/mintSlice'
+import priceReducer from './features/price/priceSlice'
 
 export const store = configureStore({
     reducer: {
         mint: mintReducer,
+        price: priceReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 })
