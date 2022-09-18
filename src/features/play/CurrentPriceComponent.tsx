@@ -2,8 +2,14 @@ import React from "react"
 import { useContractRead, usePrepareSendTransaction, useSendTransaction } from 'wagmi'
 import { abi } from '../../common/chainclient'
 import { CONTRACT_ADDRESS } from '../../common/app.config'
-import { Box, Button } from "@mui/material"
+import { Box, Button, styled } from "@mui/material"
 import { BigNumber } from "ethers"
+
+const StyledBox = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
 
 export const CurrentPriceComponent = () => {
   console.log('trying get price', CONTRACT_ADDRESS);
@@ -12,7 +18,7 @@ export const CurrentPriceComponent = () => {
     contractInterface: abi,
     functionName: 'getCurrentMintPrice',
     onSuccess(data) {
-      console.log('Success', data.toString())
+      console.log('Got price:', data.toString())
     },
   })
 
@@ -28,12 +34,12 @@ export const CurrentPriceComponent = () => {
 
   return (
     <React.Fragment>
-      <Box>
+      <StyledBox>
         <Box>
           Ξ current price
         </Box>
         {/* <Button disabled={!sendTransaction} onClick={() => sendTransaction?.()}>Check send</Button> */}
-      </Box>
+      </StyledBox>
     </React.Fragment>
   )
 }
