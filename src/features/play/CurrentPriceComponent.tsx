@@ -6,16 +6,18 @@ import { Box, Button } from "@mui/material"
 import { BigNumber } from "ethers"
 
 export const CurrentPriceComponent = () => {
-  // const { data, isError, isLoading } = useContractRead({
-  //   addressOrName: CONTRACT_ADDRESS,
-  //   contractInterface: abi,
-  //   functionName: 'getCurrentPrice'
-  // })
-
-  const { config } = usePrepareSendTransaction({
-    request: { to: '0x47B40160f72C4321E08DE8B95E262e902c991cD3', value: BigNumber.from('10000000000000000') },
+  console.log('trying get price', CONTRACT_ADDRESS);
+  const { data, isError, isLoading } = useContractRead({
+    addressOrName: CONTRACT_ADDRESS,
+    contractInterface: abi,
+    functionName: 'getCurrentPrice'
   })
-  const { data, isLoading, isSuccess, sendTransaction } = useSendTransaction(config)
+  console.log('!!!!', data);
+
+  // const { config } = usePrepareSendTransaction({
+  //   request: { to: '0x47B40160f72C4321E08DE8B95E262e902c991cD3', value: BigNumber.from('10000000000000000') },
+  // })
+  // const { data, isLoading, isSuccess, sendTransaction } = useSendTransaction(config)
 
 
   // const read = useContractRead({addressOrName: address, contract});
@@ -28,7 +30,7 @@ export const CurrentPriceComponent = () => {
         <Box>
           Ξ current price
         </Box>
-        <Button disabled={!sendTransaction} onClick={() => sendTransaction?.()}>Check send</Button>
+        {/* <Button disabled={!sendTransaction} onClick={() => sendTransaction?.()}>Check send</Button> */}
       </Box>
     </React.Fragment>
   )
