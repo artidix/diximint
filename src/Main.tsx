@@ -1,8 +1,6 @@
 import React from 'react';
 import { Paper, Button, Box, Typography, TextField, styled } from '@mui/material';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { useAccount } from 'wagmi';
-import { useSnackbar } from 'notistack';
 import { mintThunk } from './features/mint/mintTunk';
 import { useAppDispatch, useAppSelector } from './hooks';
 import { MintThunkInput } from './features/mint/mintTunk';
@@ -11,6 +9,7 @@ import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
 import { CurrentPriceComponent } from './features/play/CurrentPriceComponent';
+import { MintButton } from './features/mint/MintButton';
 
 const RootContainer = styled(Box)`
     display: flex;
@@ -37,22 +36,13 @@ const StyledInsider = styled(Box)`
 
 export const Main = () => {
   const dispatch = useAppDispatch();
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  
 
   const [currentPrice, setCurrentPrice] = useState(null as Number | null);
   const { address, isConnected } = useAccount();
 
   const [phrase, setPhrase] = useState('');
-
-  const requestMinting = async (_phrase: string) => {
-    var mintRequest = { phrase: _phrase } as MintThunkInput;
-    var res = await dispatch(mintThunk(mintRequest));
-
-    const result = res.payload as any;
-    if (result.id) {
-      enqueueSnackbar(`${_phrase}: ${result.id}`);
-    }
-  }
+  
 
   if (isConnected) {
     return (
@@ -72,14 +62,7 @@ export const Main = () => {
                 margin: '.5rem',
               }}
             />
-            <Button
-              variant="contained"
-              sx={{ margin: '.5rem' }}
-              disabled={phrase == ''}
-              startIcon={<RocketLaunchIcon />}
-              onClick={() => requestMinting(phrase)}>
-              Mint
-            </Button>
+            <MintButton />
           </StyledInsider>
         </StyledPaper>
       </RootContainer>

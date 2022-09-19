@@ -17,7 +17,6 @@ export const CurrentPriceComponent = () => {
   const dispatch = useAppDispatch();
   const currentPrice = useAppSelector(priceSelector);
 
-  const [price, setPrice] = useState(null as string | null);
   const { data, isError, isLoading } = useContractRead({
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: abi,
@@ -26,7 +25,6 @@ export const CurrentPriceComponent = () => {
       const p = utils.formatEther(data.toString());
       console.log('Got price:', p);
       dispatch(gotPrice(p));
-      setPrice(p);
     },
   })
 
