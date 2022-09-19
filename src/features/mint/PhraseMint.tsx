@@ -31,7 +31,7 @@ export const PhraseMint = () => {
         }}
       />
       <Box display='flex' flexDirection='row' justifyContent='center'>
-        <MintButton />
+        <MintButton phrase={phrase} />
       </Box>
     </React.Fragment>
   )
