@@ -24,7 +24,7 @@ export const MintButton = () => {
   return (
     <Button
       variant="contained"
-      sx={{ margin: '.5rem' }}
+      sx={{ margin: '.5rem', width: '10rem' }}
       disabled={phrase == ''}
       startIcon={<RocketLaunchIcon />}
       onClick={() => requestMinting(phrase)}>

@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material'
+import { Box, TextField } from '@mui/material'
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { CurrentPriceComponent } from '../play/CurrentPriceComponent'
@@ -30,7 +30,9 @@ export const PhraseMint = () => {
           margin: '.5rem',
         }}
       />
-      <MintButton />
+      <Box display='flex' flexDirection='row' justifyContent='center'>
+        <MintButton />
+      </Box>
     </React.Fragment>
   )
 }

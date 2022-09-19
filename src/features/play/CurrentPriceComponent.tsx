@@ -11,6 +11,7 @@ const StyledBox = styled(Box)`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: .5rem;
 `
 
 export const CurrentPriceComponent = () => {
@@ -42,7 +43,7 @@ export const CurrentPriceComponent = () => {
     <React.Fragment>
       <StyledBox>
         <Box>
-           current price {currentPrice} Ξ
+           current price Ξ{currentPrice}
         </Box>
         {/* <Button disabled={!sendTransaction} onClick={() => sendTransaction?.()}>Check send</Button> */}
       </StyledBox>

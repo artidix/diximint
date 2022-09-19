@@ -24,6 +24,8 @@ const StyledInsiderBlock = styled(Box)`
   border: 1px solid #BB00AA;
   display: flex;
   flex-direction: column;
+  border-radius: 4px;
+  padding-top: 1rem;
 `
 
 export const Main = () => {
