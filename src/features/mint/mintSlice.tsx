@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
 import { mintThunk } from "./mintTunk";
 
 export type NFTStatus = 'none' | 'requested' | 'minted';
@@ -21,6 +22,9 @@ export const mintSlice = createSlice({
       state.phrase = action.payload;
       state.nftStatus = 'requested';
     },
+    setPhrase: (state, action: PayloadAction<string>) => {
+      state.phrase = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(mintThunk.pending, (state) => {
@@ -30,14 +34,17 @@ export const mintSlice = createSlice({
     });
 
     builder.addCase(mintThunk.fulfilled, (state, action) => {
-        if (action.payload) {
-           // @! show success toast
-           // @! show result
-        }
+      if (action.payload) {
+        // @! show success toast
+        // @! show result
+      }
     });
   }
 });
 
-export const {requestMint} = mintSlice.actions
+export const { requestMint } = mintSlice.actions
+export const { setPhrase } = mintSlice.actions
+
+export const currentPriceSelector  = (s: RootState) => s.mint.phrase
 
 export default mintSlice.reducer

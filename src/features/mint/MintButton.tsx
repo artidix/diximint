@@ -2,11 +2,13 @@ import { Button } from "@mui/material"
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { useSnackbar } from "notistack";
 import { mintThunk, MintThunkInput } from "./mintTunk";
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { currentPriceSelector } from "./mintSlice";
 
 export const MintButton = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
+  const phrase = useAppSelector(currentPriceSelector);
 
   
   const requestMinting = async (_phrase: string) => {

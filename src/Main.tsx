@@ -10,6 +10,7 @@ import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { CONTRACT_ADDRESS } from './common/app.config';
 import { CurrentPriceComponent } from './features/play/CurrentPriceComponent';
 import { MintButton } from './features/mint/MintButton';
+import { currentPriceSelector, setPhrase } from './features/mint/mintSlice';
 
 const RootContainer = styled(Box)`
     display: flex;
@@ -36,13 +37,15 @@ const StyledInsider = styled(Box)`
 
 export const Main = () => {
   const dispatch = useAppDispatch();
+  const phrase = useAppSelector(currentPriceSelector);
   
 
   const [currentPrice, setCurrentPrice] = useState(null as Number | null);
   const { address, isConnected } = useAccount();
 
-  const [phrase, setPhrase] = useState('');
-  
+  const setInputPhrase = (inputPhrase: string) => {
+    dispatch(setPhrase(inputPhrase));
+  }
 
   if (isConnected) {
     return (
@@ -52,7 +55,7 @@ export const Main = () => {
             <CurrentPriceComponent />
             <TextField
               id="input-phrase"
-              onChange={(e) => setPhrase(e.target.value)}
+              onChange={(e) => setInputPhrase(e.target.value)}
               placeholder="Type your phrase"
               variant="outlined"
               sx={{
