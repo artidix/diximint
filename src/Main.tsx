@@ -1,19 +1,9 @@
-import React from 'react';
-import { Paper, Button, Box, Typography, TextField, styled } from '@mui/material';
+import { Paper, Box, styled } from '@mui/material';
 import { useAccount } from 'wagmi';
-import { mintThunk } from './features/mint/mintTunk';
-import { useAppDispatch, useAppSelector } from './hooks';
-import { MintThunkInput } from './features/mint/mintTunk';
-import { useEffect, useState } from 'react';
-import { ChainClient } from './common/chainclient';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
-import { CONTRACT_ADDRESS } from './common/app.config';
-import { CurrentPriceComponent } from './features/play/CurrentPriceComponent';
-import { MintButton } from './features/mint/MintButton';
-import { currentPriceSelector, setPhrase } from './features/mint/mintSlice';
 import { PhraseMint } from './features/mint/PhraseMint';
 
-const RootContainer = styled(Box)`
+const StyledRoot = styled(Box)`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -29,7 +19,7 @@ const StyledPaper = styled(Paper)`
   padding-bottom: 3rem;
 `
 
-const StyledInsider = styled(Box)`
+const StyledInsiderBlock = styled(Box)`
   min-width: 20rem;
   border: 1px solid #BB00AA;
   display: flex;
@@ -37,26 +27,23 @@ const StyledInsider = styled(Box)`
 `
 
 export const Main = () => {
-  const [currentPrice, setCurrentPrice] = useState(null as Number | null);
   const { address, isConnected } = useAccount();
-
-  
 
   if (isConnected) {
     return (
-      <RootContainer>
+      <StyledRoot>
         <StyledPaper>
-          <StyledInsider>
+          <StyledInsiderBlock>
             <PhraseMint />
-          </StyledInsider>
+          </StyledInsiderBlock>
         </StyledPaper>
-      </RootContainer>
+      </StyledRoot>
     )
   } else {
     return (
-      <RootContainer>
+      <StyledRoot>
         <ConnectWalletButton />
-      </RootContainer>
+      </StyledRoot>
     )
   }
 }
