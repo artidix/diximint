@@ -41,6 +41,7 @@ export const Main = () => {
                 width: 200,
                 height: 200,
               }} />
+              <Box position={'absolute'}>Sample</Box>
             </Box>
             <PhraseMint />
           </StyledInsiderBlock>
