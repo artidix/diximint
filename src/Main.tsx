@@ -58,8 +58,8 @@ export const Main = () => {
     )
   } else {
     return (
-      <StyledRoot>
-        <Box>
+      <Box>
+        <Box display='flex' flexDirection='row' justifyContent='center'>
           <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
             <Avatar variant={"rounded"} alt="The image" src={'img/1703527298_color_zebra_with_transparent_background.png'} style={{
               width: 200,
@@ -78,9 +78,13 @@ export const Main = () => {
               height: 200,
             }} />
           </Box>
-          <Box>
-            <ConnectWalletButton />
-          </Box>
+        </Box>
+
+        <Box display='flex' flexDirection='row' justifyContent='center'>
+          <ConnectWalletButton />
+        </Box>
+
+        <Box display='flex' flexDirection='row' justifyContent='center'>
           <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
             <Avatar variant={"rounded"} alt="The image" src={'img/3833673006_color_zebra_unicorn_in_a_galaxy.png'} style={{
               width: 200,
@@ -100,7 +104,7 @@ export const Main = () => {
             }} />
           </Box>
         </Box>
-      </StyledRoot>
+      </Box>
     )
   }
 }
