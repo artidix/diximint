@@ -11,7 +11,6 @@ const StyledBox = styled(Box)`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: .5rem;
 `
 
 export const CurrentPriceComponent = () => {
