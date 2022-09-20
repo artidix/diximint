@@ -18,7 +18,7 @@ export const ConnectWalletButton = () => {
 
   return (
     <StyledBox>
-      <Button onClick={handleOpen} variant='contained' color='secondary'>Connect Wallet</Button>
+      <Button onClick={handleOpen} variant='contained' color='secondary' sx={{padding: '1rem 2rem 1rem 2rem'}}>Connect Wallet</Button>
       <StyledModal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <WalletConnectButtons />
       </StyledModal>

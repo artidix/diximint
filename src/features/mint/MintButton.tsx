@@ -55,7 +55,7 @@ export const MintButton = ({phrase} : {phrase: string}) => {
     <React.Fragment>
       <Button
         variant="contained"
-        sx={{ margin: '.5rem', width: '10rem' }}
+        sx={{ margin: '.5rem', width: '10rem', padding: '1rem 2rem 1rem 2rem' }}
         disabled={!write || isLoading || phrase == null || phrase == ''}
         startIcon={<RocketLaunchIcon />}
         // onClick={() => requestMinting(phrase)}
