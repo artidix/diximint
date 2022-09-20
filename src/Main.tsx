@@ -81,6 +81,24 @@ export const Main = () => {
           <Box>
             <ConnectWalletButton />
           </Box>
+          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
+            <Avatar variant={"rounded"} alt="The image" src={'img/3833673006_color_zebra_unicorn_in_a_galaxy.png'} style={{
+              width: 200,
+              height: 200,
+            }} />
+          </Box>
+          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem' marginBottom='2rem'>
+            <Avatar variant={"rounded"} alt="The image" src={'img/3200915494_zebra_unicorn_in_a_galaxy.png'} style={{
+              width: 200,
+              height: 200,
+            }} />
+          </Box>
+          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem' marginBottom='2rem'>
+            <Avatar variant={"rounded"} alt="The image" src={'img/3745541906_colored_cat_with_unicorn_in_a_galaxy.png'} style={{
+              width: 200,
+              height: 200,
+            }} />
+          </Box>
         </Box>
       </StyledRoot>
     )
