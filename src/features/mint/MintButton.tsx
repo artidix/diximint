@@ -14,7 +14,7 @@ import { utils } from "ethers";
 export const MintButton = ({phrase} : {phrase: string}) => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
-  console.log('phrase', phrase);
+  console.log('phrase', phrase, CONTRACT_ADDRESS);
   
   const phraseHash = 'QmRAQB6YaCyidP37UdDnjFY5vQuiBrcqdyoW1CuDgwxkD4';
   //utils.formatBytes32String('');
@@ -29,7 +29,7 @@ export const MintButton = ({phrase} : {phrase: string}) => {
     },
     args: ['phrase', phraseHash, true],
     onSuccess: (data) => {console.log('success?', data)},
-    onError: (e) => console.log('err', e)
+    onError: (e) => console.log('err', e),
   })
 
   const { data, write } = useContractWrite(config)
