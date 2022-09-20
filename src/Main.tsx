@@ -59,7 +59,29 @@ export const Main = () => {
   } else {
     return (
       <StyledRoot>
-        <ConnectWalletButton />
+        <Box>
+          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
+            <Avatar variant={"rounded"} alt="The image" src={'img/1703527298_color_zebra_with_transparent_background.png'} style={{
+              width: 200,
+              height: 200,
+            }} />
+          </Box>
+          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem' marginBottom='2rem'>
+            <Avatar variant={"rounded"} alt="The image" src={'img/3515549339_zebra_unicorn_in_a_galaxy.png'} style={{
+              width: 200,
+              height: 200,
+            }} />
+          </Box>
+          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem' marginBottom='2rem'>
+            <Avatar variant={"rounded"} alt="The image" src={'img/2138429532_colored_zebra_unicorn_in_a_galaxy.png'} style={{
+              width: 200,
+              height: 200,
+            }} />
+          </Box>
+          <Box>
+            <ConnectWalletButton />
+          </Box>
+        </Box>
       </StyledRoot>
     )
   }
