@@ -8,7 +8,7 @@ const StyledRoot = styled(Box)`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    min-height: 70vh;
+    min-height: 55vh;
 `
 
 const StyledPaper = styled(Paper)`
@@ -37,10 +37,9 @@ export const Main = () => {
       <StyledRoot>
         <StyledPaper>
           <StyledInsiderBlock>
-            <ImageBox img='1703527298_color_zebra_with_transparent_background.png' label='Sample' />
+            <ImageBox img='3032612296_badass_cat_riding_harley_davidson.png' label='Sample' />
             <PhraseMint />
 
-            <ImageBox img='3515549339_zebra_unicorn_in_a_galaxy.png' label='Sample' />
           </StyledInsiderBlock>
         </StyledPaper>
       </StyledRoot>
@@ -48,7 +47,7 @@ export const Main = () => {
   } else {
     return (
       <Box>
-        <Box display='flex' flexDirection='row' justifyContent='center'>
+        <Box display='flex' flexDirection='row' justifyContent='center' paddingTop='1rem'>
           <ImageBox img='3515549339_zebra_unicorn_in_a_galaxy.png' />
           <ImageBox img='1866953365_zebra_unicorn_in_a_galaxy.png' />
           <ImageBox img='2138429532_colored_zebra_unicorn_in_a_galaxy.png' />
