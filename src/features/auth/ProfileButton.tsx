@@ -36,7 +36,9 @@ export function Profile() {
     <React.Fragment>
       <Button color='secondary' onClick={handleOpen}>Sign in</Button>
       <StyledModal open={open} onClose={handleClose} aria-labelledby="auth-modal" aria-describedby="authentication-options">
-        <WalletConnectButtons />
+        <Box>
+          <WalletConnectButtons />
+        </Box>
       </StyledModal>
     </React.Fragment>
   )
