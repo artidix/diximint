@@ -49,8 +49,8 @@ export const Main = () => {
     return (
       <Box>
         <Box display='flex' flexDirection='row' justifyContent='center'>
-          <ImageBox img='1703527298_color_zebra_with_transparent_background.png' />
           <ImageBox img='3515549339_zebra_unicorn_in_a_galaxy.png' />
+          <ImageBox img='1866953365_zebra_unicorn_in_a_galaxy.png' />
           <ImageBox img='2138429532_colored_zebra_unicorn_in_a_galaxy.png' />
         </Box>
 
@@ -59,9 +59,9 @@ export const Main = () => {
         </Box>
 
         <Box display='flex' flexDirection='row' justifyContent='center'>
-          <ImageBox img='3833673006_color_zebra_unicorn_in_a_galaxy.png' />
-          <ImageBox img='3200915494_zebra_unicorn_in_a_galaxy.png' />
-          <ImageBox img='3745541906_colored_cat_with_unicorn_in_a_galaxy.png' />
+          <ImageBox img='4045315391_color_zebra_unicorn_in_a_galaxy.png' />
+          <ImageBox img='2524076326_colored_cat_with_unicorn_in_a_galaxy.png' />
+          <ImageBox img='34022896_colored_zebra_unicorn_in_a_galaxy.png' />
         </Box>
       </Box>
     )
