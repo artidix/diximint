@@ -1,5 +1,6 @@
 import { Paper, Box, styled, Avatar } from '@mui/material';
 import { useAccount } from 'wagmi';
+import { ImageBox } from './common/ImageBox';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { PhraseMint } from './features/mint/PhraseMint';
 
@@ -36,22 +37,10 @@ export const Main = () => {
       <StyledRoot>
         <StyledPaper>
           <StyledInsiderBlock>
-            <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
-              <Avatar variant={"rounded"} alt="The image" src={'img/1703527298_color_zebra_with_transparent_background.png'} style={{
-                width: 200,
-                height: 200,
-              }} />
-              <Box position={'absolute'}>Sample</Box>
-            </Box>
+            <ImageBox img='1703527298_color_zebra_with_transparent_background.png' label='Sample' />
             <PhraseMint />
 
-            <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem' marginBottom='2rem'>
-              <Avatar variant={"rounded"} alt="The image" src={'img/3515549339_zebra_unicorn_in_a_galaxy.png'} style={{
-                width: 200,
-                height: 200,
-              }} />
-              <Box position={'absolute'} color='white'>Sample</Box>
-            </Box>
+            <ImageBox img='3515549339_zebra_unicorn_in_a_galaxy.png' label='Sample' />
           </StyledInsiderBlock>
         </StyledPaper>
       </StyledRoot>
@@ -60,24 +49,9 @@ export const Main = () => {
     return (
       <Box>
         <Box display='flex' flexDirection='row' justifyContent='center'>
-          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
-            <Avatar variant={"rounded"} alt="The image" src={'img/1703527298_color_zebra_with_transparent_background.png'} style={{
-              width: 200,
-              height: 200,
-            }} />
-          </Box>
-          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem' marginBottom='2rem'>
-            <Avatar variant={"rounded"} alt="The image" src={'img/3515549339_zebra_unicorn_in_a_galaxy.png'} style={{
-              width: 200,
-              height: 200,
-            }} />
-          </Box>
-          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem' marginBottom='2rem'>
-            <Avatar variant={"rounded"} alt="The image" src={'img/2138429532_colored_zebra_unicorn_in_a_galaxy.png'} style={{
-              width: 200,
-              height: 200,
-            }} />
-          </Box>
+          <ImageBox img='1703527298_color_zebra_with_transparent_background.png' />
+          <ImageBox img='3515549339_zebra_unicorn_in_a_galaxy.png' />
+          <ImageBox img='2138429532_colored_zebra_unicorn_in_a_galaxy.png' />
         </Box>
 
         <Box display='flex' flexDirection='row' justifyContent='center'>
@@ -85,24 +59,9 @@ export const Main = () => {
         </Box>
 
         <Box display='flex' flexDirection='row' justifyContent='center'>
-          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
-            <Avatar variant={"rounded"} alt="The image" src={'img/3833673006_color_zebra_unicorn_in_a_galaxy.png'} style={{
-              width: 200,
-              height: 200,
-            }} />
-          </Box>
-          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem' marginBottom='2rem'>
-            <Avatar variant={"rounded"} alt="The image" src={'img/3200915494_zebra_unicorn_in_a_galaxy.png'} style={{
-              width: 200,
-              height: 200,
-            }} />
-          </Box>
-          <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem' marginBottom='2rem'>
-            <Avatar variant={"rounded"} alt="The image" src={'img/3745541906_colored_cat_with_unicorn_in_a_galaxy.png'} style={{
-              width: 200,
-              height: 200,
-            }} />
-          </Box>
+          <ImageBox img='3833673006_color_zebra_unicorn_in_a_galaxy.png' />
+          <ImageBox img='3200915494_zebra_unicorn_in_a_galaxy.png' />
+          <ImageBox img='3745541906_colored_cat_with_unicorn_in_a_galaxy.png' />
         </Box>
       </Box>
     )
