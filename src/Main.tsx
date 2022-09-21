@@ -33,7 +33,6 @@ const StyledInsiderBlock = styled(Box)`
 export const Main = () => {
   const { address, isConnected } = useAccount();
   const bigScreen = useMediaQuery(theme.breakpoints.up('md'));
-  console.log('MD', bigScreen)
 
   if (isConnected) {
     return (

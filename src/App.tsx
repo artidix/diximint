@@ -39,21 +39,16 @@ const client = createClient({
 });
 
 function App() {
-  useEffect(() => {
-    console.log('PRV', provider)
-  }, [provider])
-
   return (
     <React.Fragment>
       <CssBaseline />
 
       <ThemeProvider theme={theme}>
         <WagmiConfig client={client}>
-
           <header>
             <Navbar />
           </header>
-
+          
           <BrowserRouter>
             <Routes>
               <Route path="/*" element={<Main />} />

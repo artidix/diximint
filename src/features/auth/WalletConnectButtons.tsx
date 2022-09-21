@@ -4,16 +4,7 @@ import { Button, Box, Modal, Grid } from '@mui/material'
 
 
 export const WalletConnectButtons = () => {
-  const { address, connector, isConnected } = useAccount()
-  const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
-  const { data: ensName } = useEnsName({ address })
   const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
-
-  const { disconnect } = useDisconnect()
-
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const styles: { container: React.CSSProperties, item: React.CSSProperties, tmp: React.CSSProperties } = {
     container: {
@@ -45,10 +36,11 @@ export const WalletConnectButtons = () => {
 
   return (
     <Box style={styles.tmp}>
-      {connectors.map((connector) => (
-        <Button style={styles.item}
+      {connectors.map((connector, i) => (
+        <Button 
+          style={styles.item}
           variant='contained'
-          disabled={!connector.ready} key={connector.id} onClick={() => { connect({ connector }); handleClose() }}>
+          disabled={!connector.ready} key={connector.id} onClick={() => { connect({ connector }); }}>
           {connector.name}
           {!connector.ready && ' (unsupported)'}
           {isLoading &&

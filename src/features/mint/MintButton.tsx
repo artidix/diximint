@@ -1,6 +1,5 @@
 import { Button } from "@mui/material"
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import { useSnackbar } from "notistack";
 import { mintThunk, MintThunkInput } from "./mintTunk";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { currentPriceSelector } from "./mintSlice";
@@ -12,7 +11,7 @@ import { utils } from "ethers";
 
 
 export const MintButton = ({phrase} : {phrase: string}) => {
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  // const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
   console.log('phrase', phrase, CONTRACT_ADDRESS);
   
