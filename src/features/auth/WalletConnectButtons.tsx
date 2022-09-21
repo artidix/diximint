@@ -18,7 +18,8 @@ export const WalletConnectButtons = () => {
       backgroundColor: '#090018A0'
     },
     item: {
-      margin: '.5rem'
+      margin: '.5rem',
+      padding: '1rem 2rem 1rem 2rem'
     },
     tmp: {
       border: '1px #BB00AA solid',

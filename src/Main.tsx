@@ -42,7 +42,9 @@ export const Main = () => {
             <ImageBox img='3032612296_badass_cat_riding_harley_davidson.png' label='Sample' />
             <PhraseMint />
             <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
-              <img src='images/powered-by-polygon.png' alt='Powered by Polygon' height='30px' />
+              <a href='https://www.coinbase.com/price/polygon' target="_blank">
+                <img src='images/powered-by-polygon.png' alt='Powered by Polygon' height='26px' />
+              </a>
             </Box>
           </StyledInsiderBlock>
         </StyledPaper>
