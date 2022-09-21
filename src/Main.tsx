@@ -1,8 +1,9 @@
-import { Paper, Box, styled, Avatar } from '@mui/material';
+import { Paper, Box, styled, Avatar, useMediaQuery } from '@mui/material';
 import { useAccount } from 'wagmi';
 import { ImageBox } from './common/ImageBox';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { PhraseMint } from './features/mint/PhraseMint';
+import { theme } from './theme';
 
 const StyledRoot = styled(Box)`
     display: flex;
@@ -31,6 +32,8 @@ const StyledInsiderBlock = styled(Box)`
 
 export const Main = () => {
   const { address, isConnected } = useAccount();
+  const bigScreen = useMediaQuery(theme.breakpoints.up('md'));
+  console.log('MD', bigScreen)
 
   if (isConnected) {
     return (
