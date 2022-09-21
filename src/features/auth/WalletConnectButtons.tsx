@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName } from 'wagmi'
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import { Button, Box, Modal, Grid } from '@mui/material'
 
 
@@ -22,7 +22,6 @@ export const WalletConnectButtons = () => {
     },
     tmp: {
       border: '1px #BB00AA solid',
-
       position: 'absolute' as 'absolute',
       top: '50%',
       left: '50%',

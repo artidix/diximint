@@ -1,4 +1,4 @@
-import { Paper, Box, styled, Avatar, useMediaQuery } from '@mui/material';
+import { Paper, Box, styled, useMediaQuery } from '@mui/material';
 import { useAccount } from 'wagmi';
 import { ImageBox } from './common/ImageBox';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
@@ -9,7 +9,7 @@ const StyledRoot = styled(Box)`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    min-height: 55vh;
+    min-height: 67vh;
 `
 
 const StyledPaper = styled(Paper)`
@@ -41,7 +41,9 @@ export const Main = () => {
           <StyledInsiderBlock>
             <ImageBox img='3032612296_badass_cat_riding_harley_davidson.png' label='Sample' />
             <PhraseMint />
-
+            <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
+              <img src='images/powered-by-polygon.png' alt='Powered by Polygon' height='30px' />
+            </Box>
           </StyledInsiderBlock>
         </StyledPaper>
       </StyledRoot>

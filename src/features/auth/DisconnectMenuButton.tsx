@@ -6,7 +6,7 @@ import { useAccount, useEnsAvatar, useDisconnect } from 'wagmi'
 
 export const DisconnectMenuButton = () => {
   const { address } = useAccount()
-  const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
+  // const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
   const { disconnect } = useDisconnect()
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -21,7 +21,7 @@ export const DisconnectMenuButton = () => {
   return (
     <React.Fragment>
       <Button onClick={handleClick} color='secondary' startIcon={
-        ensAvatar ? <img src={ensAvatar ?? ''} alt="ENS Avatar" />
+        false ? <></>
           : <Blockies seed={address?.toLocaleLowerCase() ?? ''} size={10} scale={3} />
       }></Button>
       <Menu

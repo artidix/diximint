@@ -42,7 +42,9 @@ export const CurrentPriceComponent = () => {
     <React.Fragment>
       <StyledBox>
         <Box>
-           current price Ξ{currentPrice}
+           <span>Current price:</span> 
+           <span style={{fontWeight:'bold', color: 'purple', fontSize: '18px', paddingLeft: '.5rem'}}>Ξ</span>
+           <span style={{fontWeight:'bold', color: 'green', fontSize: '18px'}}>{currentPrice}</span>
         </Box>
         {/* <Button disabled={!sendTransaction} onClick={() => sendTransaction?.()}>Check send</Button> */}
       </StyledBox>
