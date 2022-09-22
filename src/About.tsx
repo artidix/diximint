@@ -1,4 +1,5 @@
 import { Box, Button, Paper, styled } from "@mui/material"
+import { CenteredRowBox } from "./common/CenteredRowBox"
 import { ImageBox } from "./common/ImageBox"
 
 const StyledRoot = styled(Box)`
@@ -25,12 +26,6 @@ const StyledInsiderBlock = styled(Box)`
   flex-direction: column;
   border-radius: 4px;
   padding: 1rem;
-`
-
-const CenteredRowBox = styled(Box)`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 `
 
 export const About = () => {
