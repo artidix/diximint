@@ -38,35 +38,35 @@ export const About = () => {
     <StyledRoot>
       <StyledPaper>
         <StyledInsiderBlock>
-          <Box>
+          <CenteredRowBox>
             🦓
-          </Box>
-          <Box marginTop='.5rem'>
+          </CenteredRowBox>
+          <CenteredRowBox marginTop='.5rem'>
             Mint your unique NFT created by AI
-          </Box>
-          <Box>
+          </CenteredRowBox>
+          <CenteredRowBox>
             Then challenge others to guess it!
-          </Box>
-          <Box>
+          </CenteredRowBox>
+          <CenteredRowBox>
             <ImageBox img='artidix_logo2.png' />
-          </Box>
-          <Box>
+          </CenteredRowBox>
+          <CenteredRowBox>
             Type what do you want to see on the picture then just Mint it.
-          </Box>
-          <Box marginBottom='.5rem'>
+          </CenteredRowBox>
+          <CenteredRowBox marginBottom='.5rem'>
             Every next NFT costs more. Hurry up while it's cheap!
-          </Box>
-          <Box>
+          </CenteredRowBox>
+          <CenteredRowBox>
             <Button href='/'>🥁 Try 🥁</Button>
-          </Box>
-          <Box marginTop='.5rem'>
+          </CenteredRowBox>
+          <CenteredRowBox marginTop='.5rem'>
             Later you will be able to join the Game: share link to your image and challenge others to guess what was your initial text phrase. The closest winner takes over your NFT and gets ability to mint a new one for free to continue The Game. But you win the money if they don't guess it right 😉
-          </Box>
-          <Box display='flex' flexDirection='row' justifyContent='center' marginTop='1rem'>
+          </CenteredRowBox>
+          <CenteredRowBox display='flex' flexDirection='row' justifyContent='center' marginTop='1rem'>
             <a href='https://www.coinbase.com/price/polygon' target="_blank">
               <img src='images/powered-by-polygon.png' alt='Powered by Polygon' height='26px' />
             </a>
-          </Box>
+          </CenteredRowBox>
         </StyledInsiderBlock>
       </StyledPaper>
     </StyledRoot>
