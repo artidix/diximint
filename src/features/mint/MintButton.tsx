@@ -23,12 +23,9 @@ export const MintButton = ({ phrase }: { phrase: string }) => {
 
     const hashArr = ethers.utils.hashMessage(phrase);
 
-    const tx = contract.mintItem(hashArr, false, {
+    const tx = await contract.mintItem(hashArr, false, {
       value: ethers.utils.parseEther("0.1")
     });
-    //   const tx = contract.functions. .play('0x' + code, {
-    //     value: ethers.utils.parseEther("1.0"),
-    // });
 
     console.log('play.tx:', tx);
     const tmp = await tx.wait();
