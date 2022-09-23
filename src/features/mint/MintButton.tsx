@@ -17,10 +17,21 @@ export const MintButton = ({ phrase }: { phrase: string }) => {
   const phraseHash = 'QmRAQB6YaCyidP37UdDnjFY5vQuiBrcqdyoW1CuDgwxkD4';
 
   async function handleMint() {
-    console.log('mmintz', phrase);
-    console.log('signer', signer);
-    console.log(signer._address);
+    // console.log('mmintz', phrase);
+    // console.log('signer', signer);
+    // console.log(signer._address);
 
+    
+    const tx = contract.mintItem(phraseHash, false, {
+      value: ethers.utils.parseEther("0.1")
+    });
+    //   const tx = contract.functions. .play('0x' + code, {
+    //     value: ethers.utils.parseEther("1.0"),
+    // });
+
+    console.log('play.tx:', tx);
+    const tmp = await tx.wait();
+    console.log('tx.wait:', tmp);
 
   }
 
@@ -29,7 +40,7 @@ export const MintButton = ({ phrase }: { phrase: string }) => {
       variant="contained"
       color="secondary"
       sx={{ margin: '.5rem', width: '10rem', padding: '1rem 2rem 1rem 2rem' }}
-      disabled={phrase != ''}
+      disabled={phrase == ''}
       startIcon={<RocketLaunchIcon />}
       // onClick={() => requestMinting(phrase)}
       onClick={handleMint}
