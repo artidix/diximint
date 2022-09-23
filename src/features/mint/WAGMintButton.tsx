@@ -7,10 +7,10 @@ import { useContractWrite, usePrepareContractWrite, useWaitForTransaction } from
 import { CONTRACT_ADDRESS } from "../../common/app.config";
 import { abi } from "../../common/chainclient";
 import React from "react";
-import { utils } from "ethers";
+import ethers from "ethers";
 
 
-export const MintButton = ({phrase} : {phrase: string}) => {
+export const WAGMintButton = ({phrase} : {phrase: string}) => {
   // const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
   console.log('phrase', phrase, CONTRACT_ADDRESS);
@@ -24,7 +24,7 @@ export const MintButton = ({phrase} : {phrase: string}) => {
     contractInterface: abi,
     functionName: 'mintItem',
     overrides: {
-      value: utils.parseEther('0.01')
+      value: ethers.utils.parseEther('0.01')
     },
     args: ['phrase', phraseHash, true],
     onSuccess: (data) => {console.log('success?', data)},
