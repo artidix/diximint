@@ -14,15 +14,16 @@ export const MintButton = ({ phrase }: { phrase: string }) => {
   const [isSuccess, setSuccess] = useState(false);
 
   // @!tmp
-  const phraseHash = 'QmRAQB6YaCyidP37UdDnjFY5vQuiBrcqdyoW1CuDgwxkD4';
+  const sampleIPFSid = 'Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u';
 
   async function handleMint() {
     // console.log('mmintz', phrase);
     // console.log('signer', signer);
     // console.log(signer._address);
 
-    
-    const tx = contract.mintItem(phraseHash, false, {
+    const hashArr = ethers.utils.hashMessage(phrase);
+
+    const tx = contract.mintItem(hashArr, false, {
       value: ethers.utils.parseEther("0.1")
     });
     //   const tx = contract.functions. .play('0x' + code, {
