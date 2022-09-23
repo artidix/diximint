@@ -1,5 +1,6 @@
 import { Paper, Box, styled, useMediaQuery } from '@mui/material';
 import { useAccount } from 'wagmi';
+import { CenteredRowBox } from './common/CenteredRowBox';
 import { ImageBox } from './common/ImageBox';
 import { ConnectWalletButton } from './features/auth/ConnectWalletButton';
 import { PhraseMint } from './features/mint/PhraseMint';
@@ -41,11 +42,11 @@ export const Main = () => {
           <StyledInsiderBlock>
             <ImageBox img='3032612296_badass_cat_riding_harley_davidson.png' label='Sample' />
             <PhraseMint />
-            <Box display='flex' flexDirection='row' justifyContent='center' margin='1rem'>
+            <CenteredRowBox margin='1rem'>
               <a href='https://www.coinbase.com/price/polygon' target="_blank">
                 <img src='images/powered-by-polygon.png' alt='Powered by Polygon' height='26px' />
               </a>
-            </Box>
+            </CenteredRowBox>
           </StyledInsiderBlock>
         </StyledPaper>
       </StyledRoot>
@@ -53,21 +54,21 @@ export const Main = () => {
   } else {
     return (
       <Box>
-        <Box display='flex' flexDirection='row' justifyContent='center' paddingTop='1rem'>
+        <CenteredRowBox paddingTop='1rem'>
           <ImageBox img='3515549339_zebra_unicorn_in_a_galaxy.png' />
           <ImageBox img='1866953365_zebra_unicorn_in_a_galaxy.png' />
           <ImageBox img='2138429532_colored_zebra_unicorn_in_a_galaxy.png' />
-        </Box>
+        </CenteredRowBox>
 
-        <Box display='flex' flexDirection='row' justifyContent='center'>
+        <CenteredRowBox>
           <ConnectWalletButton />
-        </Box>
+        </CenteredRowBox>
 
-        <Box display='flex' flexDirection='row' justifyContent='center'>
+        <CenteredRowBox>
           <ImageBox img='4045315391_color_zebra_unicorn_in_a_galaxy.png' />
           <ImageBox img='2524076326_colored_cat_with_unicorn_in_a_galaxy.png' />
           <ImageBox img='34022896_colored_zebra_unicorn_in_a_galaxy.png' />
-        </Box>
+        </CenteredRowBox>
       </Box>
     )
   }
