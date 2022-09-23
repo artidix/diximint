@@ -2,8 +2,8 @@ import { Box, TextField } from '@mui/material'
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { CurrentPriceComponent } from '../play/CurrentPriceComponent'
-import { WAGMintButton } from './WAGMintButton';
 import { currentPriceSelector, setPhrase } from './mintSlice';
+import { MintButton } from './MintButton';
 
 
 export const PhraseMint = () => {
@@ -31,7 +31,7 @@ export const PhraseMint = () => {
         }}
       />
       <Box display='flex' flexDirection='row' justifyContent='center'>
-        <WAGMintButton phrase={phrase} />
+        <MintButton phrase={phrase} />
       </Box>
     </React.Fragment>
   )
