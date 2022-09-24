@@ -1,9 +1,10 @@
-import { Box, TextField } from '@mui/material'
+import { Box, Button, TextField } from '@mui/material'
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { CurrentPriceComponent } from '../play/CurrentPriceComponent'
 import { currentPriceSelector, setPhrase } from './mintSlice';
 import { MintButton } from './MintButton';
+import { CenteredRowBox } from '../../common/CenteredRowBox';
 
 
 export const PhraseMint = () => {
@@ -30,9 +31,21 @@ export const PhraseMint = () => {
           margin: '.5rem',
         }}
       />
-      <Box display='flex' flexDirection='row' justifyContent='center'>
+      <CenteredRowBox>
         <MintButton phrase={phrase} />
-      </Box>
+      </CenteredRowBox>
+      <CenteredRowBox>
+        <Button variant="contained"
+          sx={{ margin: '.5rem', width: '10rem', padding: '1rem 2rem 1rem 2rem' }}>
+          Generate
+        </Button>
+      </CenteredRowBox>
+      <CenteredRowBox>
+        <div>... upload to IPFS</div>
+      </CenteredRowBox>
+      <CenteredRowBox>
+        <div>... finalize</div>
+      </CenteredRowBox>
     </React.Fragment>
   )
 }
