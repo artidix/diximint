@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { CurrentPriceComponent } from '../play/CurrentPriceComponent'
@@ -6,7 +6,7 @@ import { currentPriceSelector, setPhrase } from './mintSlice';
 import { MintButton } from './MintButton';
 import { CenteredRowBox } from '../../common/CenteredRowBox';
 import { STABILITY_AI_KEY } from "../../common/app.config"
-import { generate, generateAsync } from 'stability-ts'
+// import { generate, generateAsync } from 'stability-ts'
 
 
 export const PhraseMint = () => {
@@ -21,21 +21,8 @@ export const PhraseMint = () => {
   async function handleGeneration() {
     console.log('calling with', STABILITY_AI_KEY);
 
-    const samplePhrase = 'Badass cat skateboarding over the rainbow';
-
-    // try {
-    //   const hz = await generateAsync({
-    //     prompt: samplePhrase,
-    //     apiKey: STABILITY_AI_KEY,
-    //   });
-
-    //   console.log(hz);
-    // } catch(e) {
-    //   console.log(e);
-    // }
-
     // const api = generate({
-    //   prompt: samplePhrase,
+    //   prompt: 'Badass cat skateboarding over the rainbow',
     //   apiKey: STABILITY_AI_KEY,
     // })
     
@@ -46,8 +33,6 @@ export const PhraseMint = () => {
     // api.on('end', (data) => {
     //   console.log('Generating Complete', data)
     // })
-
-
   }
 
 

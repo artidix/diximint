@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
-import { Button, Box, Modal, Grid } from '@mui/material'
+import React from 'react'
+import { useConnect } from 'wagmi'
+import { Button, Box } from '@mui/material'
 
 
 export const WalletConnectButtons = () => {
