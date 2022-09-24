@@ -34,10 +34,10 @@ export const PhraseMint = () => {
     //   console.log(e);
     // }
 
-    const api = generate({
-      prompt: samplePhrase,
-      apiKey: STABILITY_AI_KEY,
-    })
+    // const api = generate({
+    //   prompt: samplePhrase,
+    //   apiKey: STABILITY_AI_KEY,
+    // })
     
     // api.on('image', ({ buffer, filePath }) => {
     //   console.log('Image', buffer, filePath)

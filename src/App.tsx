@@ -1,30 +1,23 @@
-import React, { useEffect } from 'react';
+import { Fragment } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from "@emotion/react";
 
-import { chain, WagmiConfig, createClient, defaultChains, configureChains } from 'wagmi'
-import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { chain, WagmiConfig, createClient, configureChains } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
+// import { alchemyProvider } from 'wagmi/providers/alchemy'
 
 import { Main } from "./Main";
 import { About } from "./About";
 import { Navbar } from "./Navbar";
 import { theme } from "./theme";
-import { ALCHEMY_API_KEY } from "./common/app.config";
-import { getDefaultProvider } from 'ethers';
-
-// const { chains, provider, webSocketProvider } = configureChains(defaultChains, [
-//   alchemyProvider({ apiKey: ALCHEMY_API_KEY }),
-//   publicProvider(),
-// ]);
+// import { ALCHEMY_API_KEY } from "./common/app.config";
 
 const { chains, provider, webSocketProvider } = configureChains([chain.localhost], [publicProvider()]);
-
 
 const client = createClient({
   autoConnect: true,
@@ -40,7 +33,7 @@ const client = createClient({
 
 function App() {
   return (
-    <React.Fragment>
+    <Fragment>
       <CssBaseline />
 
       <ThemeProvider theme={theme}>
@@ -57,7 +50,7 @@ function App() {
           </BrowserRouter>
         </WagmiConfig>
       </ThemeProvider>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

@@ -58,7 +58,7 @@ export const About = () => {
             Later you will be able to join the Game: share link to your image and challenge others to guess what was your initial text phrase. The closest winner takes over your NFT and gets ability to mint a new one for free to continue The Game. But you win the money if they don't guess it right 😉
           </CenteredRowBox>
           <CenteredRowBox display='flex' flexDirection='row' justifyContent='center' marginTop='1rem'>
-            <a href='https://www.coinbase.com/price/polygon' target="_blank">
+            <a href='https://www.coinbase.com/price/polygon' target="_blank" rel="noreferrer">
               <img src='images/powered-by-polygon.png' alt='Powered by Polygon' height='26px' />
             </a>
           </CenteredRowBox>
