@@ -6,7 +6,7 @@ import { currentPriceSelector, setPhrase } from './mintSlice';
 import { MintButton } from './MintButton';
 import { CenteredRowBox } from '../../common/CenteredRowBox';
 import { STABILITY_AI_KEY } from "../../common/app.config"
-import { GenerationService } from './stabilityai/generation_pb_service';
+import { generate, generateAsync } from 'stability-ts'
 
 
 export const PhraseMint = () => {
@@ -20,8 +20,33 @@ export const PhraseMint = () => {
   // const sampleIPFSid = 'Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u';
   async function handleGeneration() {
     console.log('calling with', STABILITY_AI_KEY);
+
     const samplePhrase = 'Badass cat skateboarding over the rainbow';
-    // const hz = new GenerationService();
+
+    // try {
+    //   const hz = await generateAsync({
+    //     prompt: samplePhrase,
+    //     apiKey: STABILITY_AI_KEY,
+    //   });
+
+    //   console.log(hz);
+    // } catch(e) {
+    //   console.log(e);
+    // }
+
+    const api = generate({
+      prompt: samplePhrase,
+      apiKey: STABILITY_AI_KEY,
+    })
+    
+    // api.on('image', ({ buffer, filePath }) => {
+    //   console.log('Image', buffer, filePath)
+    // })
+    
+    // api.on('end', (data) => {
+    //   console.log('Generating Complete', data)
+    // })
+
 
   }
 
