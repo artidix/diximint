@@ -5,6 +5,7 @@ import { CurrentPriceComponent } from '../play/CurrentPriceComponent'
 import { currentPriceSelector, setPhrase } from './mintSlice';
 import { MintButton } from './MintButton';
 import { CenteredRowBox } from '../../common/CenteredRowBox';
+import { STABILITY_AI_KEY } from "../../common/app.config"
 
 
 export const PhraseMint = () => {
@@ -13,6 +14,11 @@ export const PhraseMint = () => {
 
   const setInputPhrase = (inputPhrase: string) => {
     dispatch(setPhrase(inputPhrase));
+  }
+
+  // const sampleIPFSid = 'Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u';
+  async function handleGeneration() {
+    console.log('calling with', STABILITY_AI_KEY);
   }
 
 
@@ -36,15 +42,24 @@ export const PhraseMint = () => {
       </CenteredRowBox>
       <CenteredRowBox>
         <Button variant="contained"
+          onClick={handleGeneration}
           sx={{ margin: '.5rem', width: '10rem', padding: '1rem 2rem 1rem 2rem' }}>
           Generate
         </Button>
       </CenteredRowBox>
       <CenteredRowBox>
-        <div>... upload to IPFS</div>
+        <Button variant="contained"
+          disabled
+          sx={{ margin: '.5rem', width: '10rem', padding: '1rem 2rem 1rem 2rem' }}>
+          IPFS
+        </Button>
       </CenteredRowBox>
       <CenteredRowBox>
-        <div>... finalize</div>
+      <Button variant="contained"
+          disabled
+          sx={{ margin: '.5rem', width: '10rem', padding: '1rem 2rem 1rem 2rem' }}>
+          Finalize
+        </Button>
       </CenteredRowBox>
     </React.Fragment>
   )

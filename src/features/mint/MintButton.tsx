@@ -13,14 +13,7 @@ const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
 export const MintButton = ({ phrase }: { phrase: string }) => {
   const [isSuccess, setSuccess] = useState(false);
 
-  // @!tmp
-  const sampleIPFSid = 'Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u';
-
   async function handleMint() {
-    // console.log('mmintz', phrase);
-    // console.log('signer', signer);
-    // console.log(signer._address);
-
     const hashArr = ethers.utils.hashMessage(phrase);
 
     const tx = await contract.mintItem(hashArr, false, {
@@ -30,7 +23,6 @@ export const MintButton = ({ phrase }: { phrase: string }) => {
     console.log('play.tx:', tx);
     const tmp = await tx.wait();
     console.log('tx.wait:', tmp);
-
   }
 
   return (<React.Fragment>
@@ -40,16 +32,14 @@ export const MintButton = ({ phrase }: { phrase: string }) => {
       sx={{ margin: '.5rem', width: '10rem', padding: '1rem 2rem 1rem 2rem' }}
       disabled={phrase == ''}
       startIcon={<RocketLaunchIcon />}
-      // onClick={() => requestMinting(phrase)}
-      onClick={handleMint}
-    >
+      onClick={handleMint}>
       Mint
     </Button>
     {isSuccess && (
       <div>
         Successfully minted your NFT!
         <div>
-          {/* {data?.hash} */}
+          {/* SHOW IMAGE AND IPFS LINK */}
         </div>
       </div>
     )}
