@@ -6,6 +6,7 @@ import { currentPriceSelector, setPhrase } from './mintSlice';
 import { MintButton } from './MintButton';
 import { CenteredRowBox } from '../../common/CenteredRowBox';
 import { STABILITY_AI_KEY } from "../../common/app.config"
+import { GenerationService } from './stabilityai/generation_pb_service';
 
 
 export const PhraseMint = () => {
@@ -19,6 +20,9 @@ export const PhraseMint = () => {
   // const sampleIPFSid = 'Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u';
   async function handleGeneration() {
     console.log('calling with', STABILITY_AI_KEY);
+    const samplePhrase = 'Badass cat skateboarding over the rainbow';
+    // const hz = new GenerationService();
+
   }
 
 
