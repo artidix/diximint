@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material';
-import { Profile } from './features/auth/ProfileButton';
+import { ProfileButton } from './features/auth/ProfileButton';
 
 const styles: { parts: React.CSSProperties } = {
   parts: {
@@ -17,7 +17,7 @@ export const Navbar = () => {
     <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', color: 'white' }}>
       <Box style={styles.parts}><Button color='secondary' href={'/about'}>About</Button></Box>
       <Box style={styles.parts}><Button color='secondary' href={'/'}>Mint</Button></Box>
-      <Box style={styles.parts}><Profile /></Box>
+      <Box style={styles.parts}><ProfileButton /></Box>
     </Box>
   )
 }

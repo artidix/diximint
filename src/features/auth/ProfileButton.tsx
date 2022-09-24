@@ -5,10 +5,8 @@ import { WalletConnectButtons } from './WalletConnectButtons'
 import { DisconnectMenuButton } from './DisconnectMenuButton'
 import { StyledModal } from '../../common/StyledModal'
 
-export function Profile() {
-  const { address, connector, isConnected } = useAccount()
-  // const { data: ensAvatar } = useEnsAvatar({ addressOrName: address })
-  // const { data: ensName } = useEnsName({ address })
+export function ProfileButton() {
+  const { isConnected } = useAccount()
 
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
@@ -25,8 +23,6 @@ export function Profile() {
   }
 
   if (isConnected) {
-    // console.log(`connected to ${connector?.name} by ${ensName ?? address}`);
-    // console.log('ensAvatar:', ensAvatar);
     return (
       <Box style={styles.container} onClick={() => console.log('to open')}>
         <DisconnectMenuButton />

@@ -19,8 +19,8 @@ export const MintButton = ({ phrase }: { phrase: string }) => {
   async function handleMint() {
     const hashArr = ethers.utils.hashMessage(phrase);
 
-    if (currentPrice == null)
-      throw ("Minting Price cannot be null");
+    if (!currentPrice)
+      throw Error("Minting Price cannot be null");
 
     const tx = await contract.mintItem(hashArr, false, {
       value: ethers.utils.parseEther(currentPrice)
@@ -29,6 +29,7 @@ export const MintButton = ({ phrase }: { phrase: string }) => {
     console.log('play.tx:', tx);
     const tmp = await tx.wait();
     console.log('tx.wait:', tmp);
+    setSuccess(true);
   }
 
   return (<React.Fragment>
@@ -36,7 +37,7 @@ export const MintButton = ({ phrase }: { phrase: string }) => {
       variant="contained"
       color="secondary"
       sx={{ margin: '.5rem', width: '10rem', padding: '1rem 2rem 1rem 2rem' }}
-      disabled={phrase == '' || currentPrice == null}
+      disabled={!phrase || !currentPrice}
       startIcon={<RocketLaunchIcon />}
       onClick={handleMint}>
       Mint

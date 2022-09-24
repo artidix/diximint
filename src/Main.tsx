@@ -33,7 +33,9 @@ const StyledInsiderBlock = styled(Box)`
 
 export const Main = () => {
   const { address, isConnected } = useAccount();
+  console.log('connected', address);
   const bigScreen = useMediaQuery(theme.breakpoints.up('md'));
+  console.log('md up', bigScreen);
 
   if (isConnected) {
     return (
@@ -43,7 +45,7 @@ export const Main = () => {
             <ImageBox img='3032612296_badass_cat_riding_harley_davidson.png' label='Sample' />
             <PhraseMint />
             <CenteredRowBox margin='1rem'>
-              <a href='https://www.coinbase.com/price/polygon' target="_blank">
+              <a href='https://www.coinbase.com/price/polygon' target="_blank" rel="noreferrer">
                 <img src='images/powered-by-polygon.png' alt='Powered by Polygon' height='26px' />
               </a>
             </CenteredRowBox>
